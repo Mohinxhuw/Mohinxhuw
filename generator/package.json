@@ -1,0 +1,7 @@
+{
+  "name": "vertex-template-generator",
+  "private": true,
+  "description": "Builds the Vertex PowerPoint template from code (pptxgenjs) and post-processes it into a theme-driven .pptx.",
+  "scripts": { "build": "node build.js" },
+  "dependencies": { "pptxgenjs": "^4.0.1", "react": "^19.0.0", "react-dom": "^19.0.0", "react-icons": "^5.4.0", "sharp": "^0.34.0" }
+}
