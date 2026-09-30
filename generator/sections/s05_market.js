@@ -20,13 +20,12 @@ module.exports = (pres, L) => {
     rect(s, x + w - 1.7, 2.12, 0.3, 0.04, { fill: C.SLATE, square: true });
     t(s, 'Forecast', { x: x + w - 1.32, y: 2.03, w: 1.3, h: 0.22, size: 9.5, color: C.CHAR });
     const lab = ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'];
-    s.addChart(pres.charts.LINE, [
+    L.dashedLineChart(pres, s, [
       { name: 'Actual', labels: lab, values: [14.2, 16.8, 19.9, 23.4, 27.1, 32.0, 38.0, null, null, null, null] },
       { name: 'Forecast', labels: lab, values: [null, null, null, null, null, null, 38.0, 45.1, 53.8, 64.0, 76.2] },
-    ], chartBase({ x: x - 0.1, y: 2.45, w: w + 0.1, h: 4.15, extra: {
-      chartColors: [C.NAVY, C.SLATE], lineSize: 2.5, lineDataSymbol: 'circle', lineDataSymbolSize: 6, lineDash: ['solid', 'dash'],
-      showValue: true, dataLabelPosition: 't', dataLabelFormatCode: '0', valAxisLabelFormatCode: '$0', valAxisMaxVal: 80, valAxisMajorUnit: 20,
-    } }));
+    ], [C.NAVY, C.SLATE], ['solid', 'dash'],
+    { lineSize: 2.5, lineDataSymbol: 'circle', lineDataSymbolSize: 6, showValue: true, dataLabelPosition: 't', dataLabelFormatCode: '0' },
+    chartBase({ x: x - 0.1, y: 2.45, w: w + 0.1, h: 4.15, extra: { valAxisLabelFormatCode: '$0', valAxisMaxVal: 80, valAxisMinVal: 0, valAxisMajorUnit: 20 } }));
     footnote(s, 'Source: industry analyst consensus; Corvanta analysis. Forecast values are illustrative.');
     s.addNotes('MARKET OVERVIEW. Actual and forecast are two series so the forecast can be dashed. Leave blank cells where a series has no value.');
   }

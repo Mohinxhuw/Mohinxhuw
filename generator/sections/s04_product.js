@@ -29,10 +29,12 @@ module.exports = (pres, L) => {
       t(s, k, { x: kx + 0.15, y: y + 1.14, w: kw - 0.3, h: 0.2, size: 8.5, color: C.SLATE });
       t(s, v, { x: kx + 0.15, y: y + 1.38, w: kw - 0.3, h: 0.4, font: F.DISP, size: 18, color: C.NAVY });
     });
-    s.addChart(pres.charts.LINE, [
-      { name: 'Forecast', labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'], values: [9.1, 9.8, 10.4, 11.2, 11.9, 12.4, 13.1, 13.6, 13.9, 14.2] },
-      { name: 'Target', labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'], values: [13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5] },
-    ], chartBase({ x: ix - 0.1, y: y + 2.05, w: iw + 0.15, h: 2.35, extra: { chartColors: [C.NAVY, C.LIME], lineSize: 2, lineDataSymbol: 'none', valAxisHidden: true, catAxisLabelFontSize: 8, lineDash: ['solid', 'dash'] } }));
+    const wk = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'];
+    L.dashedLineChart(pres, s, [
+      { name: 'Forecast', labels: wk, values: [9.1, 9.8, 10.4, 11.2, 11.9, 12.4, 13.1, 13.6, 13.9, 14.2] },
+      { name: 'Target', labels: wk, values: [13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5, 13.5] },
+    ], [C.NAVY, C.LIME], ['solid', 'dash'], { lineSize: 2, lineDataSymbol: 'none' },
+    chartBase({ x: ix - 0.1, y: y + 2.05, w: iw + 0.15, h: 2.35, extra: { valAxisHidden: true, catAxisLabelFontSize: 8 } }));
     // callouts
     const calls = [
       ['Navigation', 'Every workflow one click away — forecast, pipeline, analytics and coaching.', x + 1.05, y + 0.58],

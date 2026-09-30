@@ -220,6 +220,19 @@ function chartBase(o = {}) {
   return Object.assign(base, o.extra || {});
 }
 
+// Line chart with a different dash per series. pptxgenjs' `lineDash` takes ONE
+// string per chart, so each series becomes its own LINE entry of a combination
+// chart sharing the primary axes (native, fully editable in PowerPoint).
+function dashedLineChart(pres, s, series, colors, dashes, seriesOpts, base) {
+  const types = series.map((d, i) => ({
+    type: pres.charts.LINE,
+    data: [d],
+    // pptxgenjs picks the colour by index, so fill the list with this series' colour
+    options: Object.assign({ chartColors: series.map(() => colors[i]), lineDash: dashes[i] || 'solid' }, seriesOpts || {}),
+  }));
+  s.addChart(types, base);
+}
+
 // ---------- Masters ----------
 function footer(dark) {
   return [
@@ -244,4 +257,4 @@ function defineMasters(pres) {
 }
 const L = { LIGHT: 'Vertex — Content Light', OFFW: 'Vertex — Content Off-white', DARK: 'Vertex — Content Dark', BLANK: 'Vertex — Blank Light', BDARK: 'Vertex — Blank Dark', BWHITE: 'Vertex — Blank White' };
 
-module.exports = { C, F, SW, SH, M, CW, G, COLW, gx, gw, R, CT, CB, L, prerenderIcons, t, rect, oval, line, pie, arc, icon, tag, header, pill, badge, card, kpi, footnote, stepNum, tiles, dotGrid, chartBase, defineMasters };
+module.exports = { C, F, SW, SH, M, CW, G, COLW, gx, gw, R, CT, CB, L, prerenderIcons, t, rect, oval, line, pie, arc, icon, tag, header, pill, badge, card, kpi, footnote, stepNum, tiles, dotGrid, chartBase, dashedLineChart, defineMasters };

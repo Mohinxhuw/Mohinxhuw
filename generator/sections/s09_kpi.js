@@ -24,10 +24,11 @@ module.exports = (pres, L) => {
     t(s, 'Actual', { x: x + w - 2.3, y: y + 0.22, w: 0.8, h: 0.25, size: 9.5, color: C.CHAR });
     rect(s, x + w - 1.4, y + 0.33, 0.3, 0.04, { fill: C.SLATE, square: true });
     t(s, 'Plan', { x: x + w - 1.0, y: y + 0.22, w: 0.8, h: 0.25, size: 9.5, color: C.CHAR });
-    s.addChart(pres.charts.LINE, [
+    L.dashedLineChart(pres, s, [
       { name: 'Actual', labels: MO, values: [30.1, 31.8, 33.9, 35.0, 36.4, 38.3, 39.6, 41.2, 43.5, 45.0, 46.7, 48.6] },
       { name: 'Plan', labels: MO, values: [30.0, 31.2, 32.5, 33.8, 35.0, 36.3, 37.6, 38.9, 40.2, 41.6, 43.0, 44.5] },
-    ], chartBase({ x: x + 0.1, y: y + 0.55, w: w - 0.2, h: h - 0.65, extra: { chartColors: [C.NAVY, C.SLATE], lineSize: 2.25, lineDataSymbol: 'none', lineDash: ['solid', 'dash'], valAxisMinVal: 25, valAxisMaxVal: 50, valAxisMajorUnit: 5, valAxisLabelFormatCode: '$0' } }));
+    ], [C.NAVY, C.SLATE], ['solid', 'dash'], { lineSize: 2.25, lineDataSymbol: 'none' },
+    chartBase({ x: x + 0.1, y: y + 0.55, w: w - 0.2, h: h - 0.65, extra: { valAxisMinVal: 25, valAxisMaxVal: 50, valAxisMajorUnit: 5, valAxisLabelFormatCode: '$0' } }));
     const rx = gx(8) + 0.25, rw = SW - M - rx;
     card(s, rx, y, rw, h, { fill: C.WHITE });
     t(s, 'Annual goals', { x: rx + 0.3, y: y + 0.2, w: rw - 0.6, h: 0.3, font: F.HEAD, bold: true, size: 13, color: C.NAVY });

@@ -6,6 +6,7 @@
    vector, recolourable (Graphics Fill) and convertible to shapes.
 """
 import os, re, sys, zipfile, shutil
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 src, dst, icon_dir = sys.argv[1], sys.argv[2], sys.argv[3]
 
@@ -103,6 +104,11 @@ x = open(ct, encoding='utf-8').read()
 if 'Extension="svg"' not in x:
     x = x.replace('<Default Extension="xml"', '<Default Extension="svg" ContentType="image/svg+xml"/><Default Extension="xml"', 1)
     open(ct, 'w', encoding='utf-8').write(x)
+
+# 4. schema conformance for strict readers (PowerPoint mobile)
+from sanitize import sanitize
+for k, v in sorted(sanitize(tmp).items()):
+    print(f'sanitize: {k}: {v}')
 
 # document properties
 cp = os.path.join(tmp, 'docProps/core.xml')

@@ -2,7 +2,7 @@
 
 A 99-slide, fully editable PowerPoint template system for sales, marketing, consulting, startup and executive presentations. It has a light, white-first look, one brand system and no photography.
 
-**File:** `Vertex — Premium Business & Sales PowerPoint Template.pptx` (16:9, 13.33 × 7.5 in)
+**File:** `Vertex_Premium_Business_Sales_Template_FIXED.pptx` (16:9, 13.33 × 7.5 in)
 
 ![Template guide](preview/guide.png)
 
@@ -74,9 +74,18 @@ Theme fonts are set to **Manrope** (headings) and **Inter** (body). Both are fre
 ### Slide masters
 Content Light, Content Off-white, Content Dark (each with a title placeholder, footer and slide number), Blank Light, Blank Dark and Blank White.
 
+## Compatibility
+The package passes strict ISO/IEC 29500 schema validation for every slide, layout, master, notes part, chart, theme and presentation part, plus OPC validation of `[Content_Types].xml` and all relationship parts. That's the level of strictness PowerPoint for Android/iOS expects. `generator/sanitize.py` fixes known pptxgenjs output defects at build time:
+
+- `[Content_Types].xml` overrides for slide masters that don't exist
+- duplicate shape IDs on slides
+- `<a:pPr>` emitted after text runs
+- chart elements out of schema order, dangling axis IDs and missing `<c:grouping>`
+- `notesMasterIdLst` out of order, and a notes master sharing the slide master's theme
+
 ## Rebuilding from source
-The template is generated from code in `generator/` using pptxgenjs. `post.py` then rewrites brand colours as theme references and attaches the SVG icons.
+The template is generated from code in `generator/` using pptxgenjs. `post.py` then rewrites brand colours as theme references, attaches the SVG icons and runs `sanitize.py` for schema conformance.
 
 ```bash
-cd generator && npm install && node build.js   # writes out/Vertex — ….pptx
+cd generator && npm install && node build.js   # writes out/Vertex — ….pptx (requires python3 + lxml)
 ```
