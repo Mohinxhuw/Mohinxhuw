@@ -236,7 +236,7 @@ def drum_cards(t, y0=190, extra_z=0, dimall=1.0, blur_add=0.0, alpha=1.0, skip=N
         phi = (phi + math.pi) % (2 * math.pi) - math.pi
         c = math.cos(phi)
         if c < 0.12: continue
-        r = DR * (0.55 + 0.45 * intro)
+        r = DR if n == 1 else DR * (0.55 + 0.45 * intro)
         out.append(Card(n, x=0, y=y0 + r * math.sin(phi), z=r - r * c + extra_z, rx=math.degrees(phi), w=DW,
                         dim=(0.55 + 0.45 * c ** 2.2) * dimall, blur=(1 - c) * 6 + blur_add, a=alpha * clamp01((c - 0.12) / 0.25), shadow=0.6))
     return out
@@ -297,8 +297,9 @@ def frame(t):
         # hand-off into the drum (6.35 - 6.95)
         h_ = ease_io((t - 6.35) / 0.6)
         if h_ > 0:
-            p = blend(p, pose(x=0, y=190, z=0, rx=0, ry=0, rz=0, w=DW), h_)
-        if t < 6.55:
+            th = drum_theta(t)
+            p = blend(p, pose(x=0, y=190 + DR * math.sin(th), z=DR - DR * math.cos(th), rx=math.degrees(th), ry=0, rz=0, w=DW), h_)
+        if t < 6.95:
             cards.append(Card(1, **p))
 
         def brand_text(cv):
@@ -313,20 +314,23 @@ def frame(t):
 
     # ================= S3 DRUM / 60 SLIDES (6.55 - 10.6) =================
     if 6.55 <= t < 10.9:
-        intro = ease_out(clamp01((t - 6.45) / 0.8))
+        intro = ease_out(clamp01((t - 6.55) / 0.8))
         rec = ease_in(clamp01((t - 9.95) / 0.8))
         dc = drum_cards(t, extra_z=1500 * rec, blur_add=4 * rec, alpha=1 - clamp01((t - 10.35) / 0.4), intro=intro,
                         skip=23 if t >= 9.95 else None)
+        if t < 6.95:
+            dc = [c for c in dc if c.n != 1]
         # non-front cards appear progressively during the intro
         for c in dc:
             if c.n != 1: c.a *= intro
-        cards += sorted(dc, key=lambda c: -c.z)
+        dc = sorted(dc, key=lambda c: -c.z)
+        cards[:0] = dc  # drum sits behind the cover during the hand-off
 
         def drum_text(cv):
             fade = 1 - clamp01((t - 9.75) / 0.35)
             gradient_band(cv, 0, 820, 0.97 * clamp01((t - 6.55) / 0.4) * fade)
-            cnt = int(round(60 * ease_out(clamp01((t - 6.5) / 0.75))))
-            a, d = rise(t, 6.5, 0.45, 20)
+            cnt = int(round(60 * ease_out(clamp01((t - 6.6) / 0.8))))
+            a, d = rise(t, 6.6, 0.45, 20)
             text(cv, str(cnt), 'serif', 250, CX, 205 + d, WHITE, a * fade)
             a2, d2 = rise(t, 6.95, 0.5, 20)
             text(cv, 'PREMIUM SLIDES', 'sans-b', 30, CX, 495 + d2, CORAL, a2 * fade, 9)
@@ -335,17 +339,17 @@ def frame(t):
         post.append(drum_text)
 
     # ================= S4 CHARTS (9.95 - 15.75) =================
-    if 9.95 <= t < 15.9:
+    if 9.95 <= t < 16.3:
         # 23 lifts out of the drum, then the camera pushes into its chart
         lift = ease_io((t - 9.95) / 0.75)
         p = blend(pose(x=0, y=190, z=0, w=DW), pose(x=0, y=60, z=-200, w=1000, ry=-4, rx=3), lift)
         push = ease_io((t - 10.75) / 1.25)
         fu, fv, zw = 0.36, 0.62, 1850
         p = blend(p, pose(x=-(fu - 0.5) * zw, y=-(fv - 0.5) * zw * AR + 290, z=-200, w=zw, ry=0, rx=0), push)
-        back = ease_io((t - 12.0) / 0.45)
+        back = ease_io((t - 11.72) / 0.5)
         if back > 0:
             p = blend(p, pose(x=-330, y=-40, z=750, w=1000, ry=22, rx=4, dim=0.6, blur=3.5), back)
-            p['a'] = 1 - clamp01((t - 12.55) / 0.3)
+            p['a'] = 1 - clamp01((t - 12.5) / 0.3)
         if t < 12.9: cards.append(Card(23, **p))
         # montage: each beat brings a slide to the front on alternating sides
         beats = [(T_DASH, 19, 1), (T_FUN, 29, -1), (T_WAT, 42, 1), (T_FC, 33, -1)]
@@ -364,9 +368,8 @@ def frame(t):
                 hold = ease_io((t - 14.3) / 1.2)
                 p['w'] = lerp(p['w'], 1180, hold); p['y'] = lerp(p['y'], 120, hold); p['x'] = lerp(p['x'], 70, hold)
                 ex = ease_in((t - 15.3) / 0.5)
-                p['y'] -= 1500 * ex; p['z'] += 400 * ex; p['rx'] = p['rx'] + 18 * ex
+                p['y'] -= 2300 * ex; p['z'] += 400 * ex; p['rx'] = p['rx'] + 18 * ex
             cards.append(Card(n, **p))
-        cards.sort(key=lambda c: -c.z)
 
         def chart_text(cv):
             # "42 editable charts"
