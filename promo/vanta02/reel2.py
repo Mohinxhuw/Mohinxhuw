@@ -457,7 +457,8 @@ def frame(t):
                 text(cv, 'Every', 'serif', 86, x0, 300, WHITE, a0, anchor='l')
                 for i, (s, tb) in enumerate(wds):
                     nt = wds[i + 1][1] if i < 2 else 99
-                    ein = ease_out(clamp01((t - tb) / 0.3)); eout = ease_in(clamp01((t - nt) / 0.25))
+                    # shared curve keeps incoming/outgoing words exactly one slot apart
+                    ein = ease_io(clamp01((t - tb) / 0.32)) if i else 1.0; eout = ease_io(clamp01((t - nt) / 0.32))
                     if ein <= 0 or eout >= 1: continue
                     yy_ = 300 + 110 * (1 - ein) - 110 * eout
                     text(cv, s, 'serif-i', 86, x0 + wE, yy_, CORAL, a0, anchor='l', clip=(296, 420))
