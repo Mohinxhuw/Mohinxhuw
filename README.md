@@ -89,3 +89,41 @@ The template is generated from code in `generator/` using pptxgenjs. `post.py` t
 ```bash
 cd generator && npm install && node build.js   # writes out/Vertex — ….pptx (requires python3 + lxml)
 ```
+
+---
+
+# Vanta — Business Presentation Template 02
+
+A second product in the same design family: 60 fully editable 16:9 slides in a cobalt / coral / ivory palette, with editorial Georgia headlines and Arial body text. It has no photography.
+
+**Files** (in `template02/`):
+- `Vanta_Business_Presentation_Template_02.pptx`: the template
+- `Vanta_Business_Presentation_Template_02_Guide.pdf`: a 10-page guide covering editing, fonts, palette, charts, components, recommended usage and a thumbnail index
+
+![Slides 19–24](template02/preview/slides-04.jpg)
+
+## What's inside
+| Chapter | Slides |
+|---|---|
+| Introduction: cover, statement, agenda, executive overview, key numbers | 1–5 |
+| Company context: snapshot, growth, business model, revenue streams, opportunity | 6–10 |
+| Market & analysis: size, growth, segmentation, share, landscape, competitors, positioning, benchmarks | 11–18 |
+| Data & performance: dashboards, monthly/quarterly/YoY, regions, products, ranking, target vs actual, variance | 19–28 |
+| Sales: funnel, pipeline, conversion, channels, forecast, territories, acquisition, retention | 29–36 |
+| Finance: revenue mix, profitability, expenses, margins, cash flow, waterfall, forecast | 37–43 |
+| Strategy: priorities, SWOT, roadmap, growth levers, opportunity matrix, risk matrix, action plan | 44–50 |
+| Product & marketing: modules, comparison, pricing, features, marketing funnel, campaign dashboard | 51–56 |
+| Results & close: case study, before/after, takeaways, closing | 57–60 |
+
+- **42 native PowerPoint charts** on 36 slides, each with an embedded worksheet: column, bar, stacked, 100% stacked, line, dashed-plan line, area, stacked area, column + line and area + line combos on secondary axes, doughnut gauges, pie, radar, scatter, bubble, a centred funnel and a waterfall.
+- **Five dashboards**: executive (19), KPI (20), sales pipeline (30), financial (38–41) and marketing campaign (56).
+- **Theme colours**: Ink, White, Deep Cobalt, Ivory, Cobalt `#2340C8`, Coral `#FF6B4A`, Sky, Mist, Stone, Peach. **Theme fonts**: Georgia + Arial. Both are pre-installed on Windows, macOS, iOS and Android Office.
+- **Five slide masters**: Ivory, White and Cobalt (each with a title placeholder, footer and slide number), plus Blank Ivory and Blank Cobalt.
+- **32 Phosphor Light vector icons**, embedded as SVG with a PNG fallback.
+- **Speaker notes** on every slide.
+
+## Rebuilding
+```bash
+cd template02/generator && npm install && node build.js   # writes out/Vanta_Business_Presentation_Template_02.pptx
+```
+`post.py` maps colours to theme slots and attaches the icons. `sanitize.py` then applies the same strict-schema fixes as Template 01. It also drops empty cached chart points, which are the blank cells in the highlight series. `guide/guide.py` builds the guide HTML (printed with headless Chromium) from a rendered QA pass.
