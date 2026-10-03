@@ -1,6 +1,6 @@
-"""Soundtracks for the two Business Presentation Pro ads: AI male voiceover (Kokoro am_michael),
-original synthesised music (no samples, no stock audio) and synthesised sound effects.
-The music ducks under the voice; the master is normalised to -14 LUFS with a true-peak limiter.
+"""Soundtracks for the two Business Presentation Pro ads: AI male voiceover (Kokoro am_michael)
+plus subtle synthesised UI sound effects only (no music, no samples).
+The master is normalised to -14 LUFS with a true-peak limiter.
 
 usage: python3 audio_ads.py ad1|ad2 out.wav
 """
@@ -13,139 +13,13 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 from sfxlib import SR, db, place, band_noise, whoosh, swipe, click, tap, pop, impact
 rng = np.random.default_rng(5)
 
-def mtof(m): return 440.0 * 2 ** ((m - 69) / 12)
 def lp(x, f, order=2): return sosfilt(butter(order, f, 'lp', fs=SR, output='sos'), x, axis=0)
 def hp(x, f, order=2): return sosfilt(butter(order, f, 'hp', fs=SR, output='sos'), x, axis=0)
 def bp(x, lo, hi): return sosfilt(butter(2, [lo, hi], 'bp', fs=SR, output='sos'), x, axis=0)
 
-def saw(f, n, phase=0.0):
-    t = np.arange(n) / SR
-    return 2 * ((f * t + phase) % 1.0) - 1
-
-def env_adsr(n, a=0.01, d=0.1, s=0.7, r=0.2):
-    e = np.ones(n) * s
-    A, D, Rr = int(a * SR), int(d * SR), int(r * SR)
-    A = min(A, n); e[:A] = np.linspace(0, 1, A)
-    D2 = min(D, max(n - A, 0)); e[A:A + D2] = np.linspace(1, s, D2)
-    if Rr and n > Rr: e[-Rr:] *= np.linspace(1, 0, Rr)
-    return e
-
-def pad_chord(notes, dur, bright=1400):
-    n = int(dur * SR)
-    out = np.zeros(n)
-    for m in notes:
-        for det in (-0.08, 0.0, 0.07):
-            out += saw(mtof(m) * 2 ** (det / 12), n, rng.random())
-    out = lp(lp(out, bright), bright * 1.3)
-    return out * env_adsr(n, 0.35, 0.2, 0.9, 0.45) / (len(notes) * 3)
-
-def bass_note(m, dur, kind='sub'):
-    n = int(dur * SR); t = np.arange(n) / SR; f = mtof(m)
-    # upper harmonics keep the bass line audible on phone speakers
-    x = np.sin(2 * np.pi * f * t) + 0.45 * np.sin(4 * np.pi * f * t) + 0.25 * np.sin(6 * np.pi * f * t)
-    x = np.tanh(1.6 * x) * env_adsr(n, 0.005, 0.08, 0.75, 0.05)
-    return x
-
-def kick():
-    n = int(0.4 * SR); t = np.arange(n) / SR
-    f = 45 + 95 * np.exp(-t / 0.035)
-    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.16)
-    x += 0.15 * hp(rng.standard_normal(n), 3000) * np.exp(-t / 0.004)
-    return x * np.minimum(1, t / 0.0015)
-
-def hat(open_=False):
-    n = int((0.18 if open_ else 0.05) * SR); t = np.arange(n) / SR
-    return hp(rng.standard_normal(n), 7500) * np.exp(-t / (0.06 if open_ else 0.012))
-
-def clap():
-    n = int(0.25 * SR); t = np.arange(n) / SR
-    x = bp(rng.standard_normal(n), 900, 3200)
-    e = np.exp(-t / 0.09) * (1 + 0.6 * (np.sin(2 * np.pi * 90 * t) > 0) * (t < 0.03))
-    return x * e
-
-def pluck(m, dur=0.35):
-    n = int(dur * SR); t = np.arange(n) / SR; f = mtof(m)
-    x = saw(f, n) * 0.6 + np.sin(2 * np.pi * f * t)
-    # cutoff closes quickly: two passes with decaying blend emulate a filter envelope
-    bright = lp(x, 5000); dark = lp(x, 900)
-    k = np.exp(-t / 0.05)
-    return (bright * k + dark * (1 - k)) * np.exp(-t / 0.16) * np.minimum(1, t / 0.002)
-
-def bell(m, dur=2.2):
-    n = int(dur * SR); t = np.arange(n) / SR; f = mtof(m)
-    x = sum(a * np.sin(2 * np.pi * f * r * t) * np.exp(-t / (dec)) for r, a, dec in [(1, 1, 1.2), (2.76, 0.4, 0.5), (5.4, 0.2, 0.25), (2.0, 0.3, 0.8)])
-    return x * np.minimum(1, t / 0.003)
-
-def riser(dur):
-    x = band_noise(dur, 300, 6000, 1.2, attack=0.97, curve=1.6)
-    return x
-
-def music(ad, dur):
-    N = int(dur * SR) + SR
-    L = np.zeros((N, 2))
-    if ad == 'ad1':
-        bpm, drop, off = 115, 6.30, None
-        beat = 60 / bpm; bar = beat * 4
-        t0 = drop - 3 * bar                      # bar grid lands on the drop
-        prog = [([62, 66, 69, 73], 38), ([61, 64, 69, 76], 45), ([59, 62, 66, 69], 47), ([64, 68, 71, 73], 40)]  # Dmaj7 A/C# Bm7 E6
-        nb = int((dur - t0) / bar) + 2
-        for b in range(nb):
-            ts = t0 + b * bar
-            notes, root = prog[b % 4]
-            post_drop = ts >= drop - 0.01
-            place(L, pad_chord(notes, bar + 0.5, 1500 if not post_drop else 2400), ts, -3 if post_drop else -6)
-            if post_drop or ts >= drop - bar:  # bass enters a bar before the drop as a lift
-                for k in range(8):
-                    if k % 2 == 1 or post_drop:
-                        place(L, bass_note(root, beat / 2 * 0.9), ts + k * beat / 2, -16 if post_drop else -19)
-            for k in range(4):
-                tb = ts + k * beat
-                if post_drop and tb < dur - 0.6:
-                    place(L, kick(), tb, -12)
-                    if k in (1, 3): place(L, clap(), tb, -17, 0.1)
-                for h in range(2):
-                    th = tb + h * beat / 2
-                    if th < dur - 0.6 and (post_drop or th > 1.0):
-                        place(L, hat(open_=(h == 1 and post_drop)), th, -25 if post_drop else -30, 0.35)
-            if post_drop:  # 16th-note arpeggio on chord tones
-                arp = notes + [notes[1] + 12]
-                for k in range(16):
-                    tk = ts + k * beat / 4
-                    if tk < dur - 0.8:
-                        place(L, pluck(arp[k % len(arp)] + 12, 0.3), tk, -17 - 2 * (k % 2), -0.3 + 0.6 * ((k * 5) % 7) / 6)
-        place(L, riser(drop - 5.35), 5.35, -20)
-        # pain section: muted, filtered — the drop opens it up
-    else:
-        bpm, drop = 96, 5.65
-        beat = 60 / bpm; bar = beat * 4
-        t0 = drop - 3 * bar
-        prog = [([62, 65, 69, 72, 76], 38), ([58, 62, 65, 69], 46), ([55, 58, 62, 65, 69], 43), ([57, 62, 64, 67], 45)]  # Dm9 Bbmaj7 Gm9 A7sus4
-        nb = int((dur - t0) / bar) + 2
-        for b in range(nb):
-            ts = t0 + b * bar
-            notes, root = prog[b % 4]
-            post = ts >= drop - 0.01
-            big = ts >= 10.6
-            place(L, pad_chord(notes, bar + 0.6, 1300 if not post else (1900 if not big else 2500)), ts, -3)
-            place(L, bell(notes[-1] + 12, 2.4), ts, -15, 0.3 * (1 if b % 2 else -1))
-            for k in range(8):   # pulsing 8th-note sub
-                tk = ts + k * beat / 2
-                if tk >= 0.0 and tk < dur - 0.3:
-                    place(L, bass_note(root - 12 if not post else root, beat / 2 * 0.8), tk, -21 if not post else -17)
-            if post:
-                for k in range(4):
-                    tb = ts + k * beat
-                    if tb < dur - 0.4:
-                        if k in (0, 2) or big: place(L, kick(), tb, -14 if not big else -12)
-                        if k == 2 and big: place(L, clap(), tb, -18)
-                    for h in range(4 if big else 2):
-                        th = tb + h * beat / (4 if big else 2)
-                        if th < dur - 0.4: place(L, hat(), th, -29, 0.3)
-        place(L, riser(drop - 4.6), 4.6, -21)
-        place(L, riser(0.9), 9.85, -22)
-    L = L[:int(dur * SR)]
-    fade = np.ones(len(L)); fade[-int(0.9 * SR):] = np.linspace(1, 0, int(0.9 * SR)) ** 1.5
-    return L * fade[:, None]
+def sheen(dur=1.2):
+    """Airy, non-tonal reveal sweep (band-limited noise, no pitch)."""
+    return band_noise(dur, 2500, 8000, 0.9, attack=0.35, curve=1.4)
 
 def sfx(ad, dur):
     S = np.zeros((int(dur * SR), 2))
@@ -169,6 +43,12 @@ def sfx(ad, dur):
         place(S, impact(1.6), 13.42, -19)
         place(S, whoosh(1.0, 150, 1400, attack=0.4), 14.6, -25)
         place(S, click(3200, 0.004, 1200), 15.6, -28)
+        # soft ticks on the kinetic words already on screen
+        for t in (3.05, 3.40, 3.55, 4.15, 7.35, 7.65, 9.30, 9.60, 10.12, 10.30, 11.72, 11.90, 12.10, 12.25, 12.45, 13.62, 14.05, 14.25):
+            place(S, click(4400, 0.0018, 1900), t, -37, 0.15)
+        place(S, band_noise(0.9, 400, 2500, 1.2, attack=0.9, curve=1.5), 5.4, -27)   # soft lift into the rebuild
+        place(S, sheen(1.3), 14.95, -30, -0.4, 0.4)                                    # product name reveal
+        place(S, whoosh(2.2, 140, 600, attack=0.5), 16.4, -33)                          # slow push on the final hold
     else:
         place(S, impact(1.8), 0.0, -24)
         sh = band_noise(2.1, 3000, 9000, 0.8, attack=0.5, curve=1.3)        # light-sweep shimmer
@@ -187,6 +67,12 @@ def sfx(ad, dur):
         place(S, impact(1.8), 14.55, -21)
         place(S, band_noise(1.4, 3500, 9000, 0.8, attack=0.5), 15.2, -32, -0.5, 0.5)
         place(S, click(3200, 0.004, 1200), 15.95, -29)
+        # soft ticks on text reveals already on screen
+        for t in (0.70, 1.02, 2.20, 2.75, 4.30, 5.65, 7.00, 7.90, 9.25, 11.20, 11.85, 14.15, 14.35, 15.35, 15.70):
+            place(S, click(4000, 0.002, 1700), t, -37, -0.15)
+        place(S, band_noise(0.9, 400, 2500, 1.2, attack=0.9, curve=1.5), 4.8, -28)    # lift into the reveal
+        place(S, band_noise(0.8, 400, 2500, 1.2, attack=0.9, curve=1.5), 9.95, -29)   # lift into the wall
+        place(S, whoosh(2.0, 140, 600, attack=0.5), 16.2, -33)                          # slow push on the final hold
     return S
 
 def voice(ad, starts, dur):
@@ -219,27 +105,35 @@ if __name__ == '__main__':
     cfg = ads.ADS[ad][1]; dur = cfg['dur']
     meter = pyln.Meter(SR)
     V = voice(ad, cfg['vo'], dur)
-    M = music(ad, dur); S = sfx(ad, dur)
+    S = sfx(ad, dur)
     # room for the sfx
     ir_t = np.arange(int(0.4 * SR)) / SR
     ir = rng.standard_normal((len(ir_t), 2)) * np.exp(-ir_t / 0.1)[:, None]
     ir = np.stack([bp(ir[:, c], 300, 7000) for c in range(2)], 1); ir /= np.sqrt((ir ** 2).sum(0))
     S = S + 0.15 * np.stack([fftconvolve(S[:, c], ir[:, c])[:len(S)] for c in range(2)], 1)
     Vst = np.stack([V, V], 1) + 0.05 * np.stack([fftconvolve(V, ir[:, c])[:len(V)] for c in range(2)], 1)
-    # stem loudness: voice on top, music ~13 LU under it, sfx ~9 LU under
+    # stem loudness: voice on top, sound effects ~6 LU under it
     Vst *= db(-16 - meter.integrated_loudness(Vst))
-    M *= db(-26 - meter.integrated_loudness(M))
-    S *= db(-25 - meter.integrated_loudness(S))
-    # duck music under speech (extra ~5 dB, smooth)
-    sp = fftconvolve(np.abs(V), np.ones(int(0.15 * SR)) / int(0.15 * SR), 'same')
-    duck = 1 - 0.45 * np.clip(sp / (np.percentile(sp, 90) + 1e-9), 0, 1)
-    M *= duck[:, None]; S *= (1 - 0.25 * (1 - duck))[:, None]
-    mix = hp(Vst + M + S, 28)
+    S *= db(-19 - meter.integrated_loudness(S))
+    # sidechain: while the voice is speaking, keep the effects >= 10 dB under it (fast attack, smooth release);
+    # between phrases they play at full level so every transition still lands
+    def env(x, ms):
+        k = int(ms / 1000 * SR); return np.sqrt(fftconvolve(x ** 2, np.ones(k) / k, 'same').clip(0))
+    hv = hp(Vst.mean(1), 150); hs = hp(S.mean(1), 150)
+    ev, es = env(hv, 30), env(hs, 30)
+    speaking = env(hv, 120) > 0.1 * np.percentile(env(hv, 120), 95)
+    need = np.where(speaking, np.minimum(1.0, ev * db(-10) / np.maximum(es, 1e-9)), 1.0)
+    need = -maximum_filter1d(-need, size=int(0.02 * SR))           # look-ahead so the dip lands before the peak
+    g = np.empty_like(need); cur = 1.0; att = math.exp(-1 / (0.008 * SR)); rel = math.exp(-1 / (0.15 * SR))
+    for i, v in enumerate(need):
+        cur = v + (cur - v) * (att if v < cur else rel); g[i] = cur
+    S *= g[:, None]
+    mix = hp(Vst + S, 28)
     for _ in range(3):
         mix *= db(-14 - meter.integrated_loudness(mix)); mix = limit(mix)
     wavfile.write(out, SR, (np.clip(mix, -1, 1) * 32767).astype(np.int16))
     if os.environ.get('STEMS'):
-        for name, x in [('voice', Vst), ('music', M), ('sfx', S)]: wavfile.write(out.replace('.wav', f'_{name}.wav'), SR, (np.clip(x * 3, -1, 1) * 32767).astype(np.int16))
-    for name, x in [('voice', Vst), ('music', M), ('sfx', S)]:
+        for name, x in [('voice', Vst), ('sfx', S)]: wavfile.write(out.replace('.wav', f'_{name}.wav'), SR, (np.clip(x * 3, -1, 1) * 32767).astype(np.int16))
+    for name, x in [('voice', Vst), ('sfx', S)]:
         print(name, round(meter.integrated_loudness(x), 1), 'LUFS (pre-master)')
     print('master', round(meter.integrated_loudness(mix), 2), 'LUFS; peak', round(20 * math.log10(np.max(np.abs(mix))), 2), 'dBFS', len(mix) / SR, 's')

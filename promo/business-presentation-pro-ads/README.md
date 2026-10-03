@@ -6,8 +6,8 @@ All visuals are renders of the real `template02/Vanta_Business_Presentation_Temp
 
 | File | Concept | Hook framework | Length |
 |---|---|---|---|
-| `business-presentation-pro-ad-01.mp4` | **Blank → Built**: light ivory, kinetic sans-serif type, 115 BPM groove | Pain → Solution → Transformation | 19.0 s |
-| `business-presentation-pro-ad-02.mp4` | **The Reveal**: dark cinematic spotlight, serif type, floor reflections, 96 BPM score | Curiosity gap | 18.3 s |
+| `business-presentation-pro-ad-01.mp4` | **Blank → Built**: light ivory, kinetic sans-serif type | Pain → Solution → Transformation | 19.0 s |
+| `business-presentation-pro-ad-02.mp4` | **The Reveal**: dark cinematic spotlight, serif type, floor reflections | Curiosity gap | 18.3 s |
 
 ## Ad 1 voiceover
 1. "Still building business presentations from scratch?"
@@ -25,7 +25,8 @@ All visuals are renders of the real `template02/Vanta_Business_Presentation_Temp
 
 ## How it's made
 - **Voice:** Kokoro (local neural TTS), voice `am_michael`.
-- **Music and sound effects:** synthesised in code, no samples. The music ducks under the voice.
+- **Sound:** voiceover plus subtle synthesised UI sound effects only (soft clicks, taps, whooshes, reveal sheens), synced to the animation. There is **no music**.
+- **Mixing:** a sidechain keeps the effects at least about 10 dB under the voice while he's speaking; between phrases they play at full level.
 
 ## Rebuild
 1. Run `vo/vo.py`. It needs the Kokoro model files; see `../vanta02/README.md`.
