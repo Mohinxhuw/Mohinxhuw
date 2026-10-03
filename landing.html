@@ -1,558 +1,716 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Business Presentation Pro by Vanta — PowerPoint template</title>
-<meta name="description" content="60 editorial slides and 42 native, editable PowerPoint charts for sales, finance, strategy and market analysis.">
-<meta name="color-scheme" content="light dark">
 <style>
 :root{
-  --bg:#F8F5EF; --bg-2:#FFFFFF; --surface:#FFFFFF; --surface-2:#F1EDE5;
-  --ink:#1A1D23; --muted:#5E6372; --rule:#E4E0D8;
-  --cobalt:#2340C8; --cobalt-ink:#2340C8; --deep:#13246B; --coral:#FF6B4A; --coral-ink:#C73E1F;
-  --sky:#B7C6F5; --chip:#EEF1FC;
-  --btn-bg:#FF6B4A; --btn-ink:#1A1D23; --btn-hover:#FF805F;
-  --shadow:0 30px 60px -28px rgba(19,36,107,.35),0 12px 24px -16px rgba(19,36,107,.25);
-  --radius:14px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0E1A52; --bg-2:#13246B; --surface:#172A78; --surface-2:#13246B;
-    --ink:#F3F1EC; --muted:#B9C3E8; --rule:#2A3C86;
-    --cobalt-ink:#B7C6F5; --coral-ink:#FF8A6E; --chip:#1D3283;
-    --shadow:0 30px 60px -24px rgba(0,0,0,.55),0 12px 24px -16px rgba(0,0,0,.45);
-  }
-  :root:not([data-theme="light"]) .dark-band{background:#0A1440}
-  :root:not([data-theme="light"]) .final{background:#13246B;box-shadow:inset 0 0 0 1px #2A3C86}
-}
-:root[data-theme="dark"] .dark-band{background:#0A1440}
-:root[data-theme="dark"] .final{background:#13246B;box-shadow:inset 0 0 0 1px #2A3C86}
-:root[data-theme="dark"]{
-  --bg:#0E1A52; --bg-2:#13246B; --surface:#172A78; --surface-2:#13246B;
-  --ink:#F3F1EC; --muted:#B9C3E8; --rule:#2A3C86;
-  --cobalt-ink:#B7C6F5; --coral-ink:#FF8A6E; --chip:#1D3283;
-  --shadow:0 30px 60px -24px rgba(0,0,0,.55),0 12px 24px -16px rgba(0,0,0,.45);
+  --navy:#0A1628; --navy-2:#17253D; --navy-3:#22324F; --lime:#C6F432; --lime-2:#D4F75E;
+  --off:#F3F5F7; --white:#FFFFFF; --charcoal:#2E3645; --steel:#2C4A74; --slate:#6B7688;
+  --mist:#D5DBE3; --olive:#5B7A0C;
+  --ink:#0A1628; --muted:#59637A; --line:#E3E7ED; --line-d:rgba(255,255,255,.12); --muted-d:#A7B1C2;
+  --display:"Manrope","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --r:16px; --r-s:10px;
+  --shadow:0 40px 80px -40px rgba(10,22,40,.45),0 18px 36px -24px rgba(10,22,40,.35);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block;height:auto}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}
-.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
-.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px}
+h1,h2,h3,h4{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.05;font-weight:800}
+p{margin:0}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-9999px;top:10px;z-index:200;background:var(--lime);color:var(--navy);padding:10px 16px;border-radius:8px;font-weight:700}
 .skip:focus{left:12px}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt-ink)}
-.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--coral);flex:none}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.01em;margin:0}
-h2{font-size:clamp(30px,4.4vw,48px);line-height:1.1}
-h3{font-size:22px;line-height:1.25}
-em.accent{font-style:italic;color:var(--coral-ink)}
-.lead{color:var(--muted);font-size:clamp(17px,1.6vw,19px);max-width:60ch}
-section{padding:clamp(64px,9vw,120px) 0}
-.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:760px}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+.on-light :focus-visible{outline-color:var(--steel)}
+
+/* type helpers */
+.tag{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase}
+.tag::before{content:"";width:9px;height:9px;background:var(--lime);flex:none}
+.on-light .tag{color:var(--charcoal)}
+.dark .tag{color:var(--muted-d)}
+.h2{font-size:clamp(34px,5vw,60px)}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.55;max-width:58ch}
+.on-light .lead{color:var(--muted)}
+.dark .lead{color:var(--muted-d)}
+.dot{color:var(--lime)}
+.on-light .dot{color:var(--olive)}
+.head{display:grid;gap:18px;max-width:780px;margin-bottom:clamp(36px,5vw,64px)}
+.head.split{max-width:none;grid-template-columns:1.1fr .9fr;align-items:end;gap:24px 56px}
+@media (max-width:860px){.head.split{grid-template-columns:1fr}}
+section{padding:clamp(72px,10vw,136px) 0;position:relative}
+.dark{background:var(--navy);color:var(--white)}
+.on-light{background:var(--white)}
+.off{background:var(--off)}
 
 /* buttons */
-.btn{white-space:nowrap;appearance:none;border:0;cursor:pointer;font:700 16px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
-.btn-buy{background:var(--btn-bg);color:var(--btn-ink);box-shadow:0 10px 24px -10px rgba(255,107,74,.7)}
-.btn-buy:hover{background:var(--btn-hover);transform:translateY(-1px)}
-.btn-buy .sep{width:1px;height:18px;background:rgba(26,29,35,.35)}
-.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--rule)}
-.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
-.btn svg{width:18px;height:18px;flex:none}
+.btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;font:700 16px/1 var(--display);letter-spacing:-.005em;text-decoration:none;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .2s ease}
+.btn:hover svg{transform:translateX(3px)}
+.btn-lime{background:var(--lime);color:var(--navy);box-shadow:0 14px 30px -14px rgba(198,244,50,.75)}
+.btn-lime:hover{background:var(--lime-2);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:var(--white);box-shadow:0 14px 30px -16px rgba(10,22,40,.7)}
+.btn-navy:hover{background:var(--navy-2);transform:translateY(-1px)}
+.btn-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor;opacity:.92}
+.btn-line:hover{opacity:1}
+.btn .div{width:1px;height:18px;background:currentColor;opacity:.3}
+.btn-sm{min-height:42px;padding:0 18px;font-size:14px}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-.nav.scrolled{border-bottom-color:var(--rule)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-.brand{font-weight:700;letter-spacing:.42em;font-size:13px;text-decoration:none}
-.nav-r{display:flex;align-items:center;gap:10px}
-.nav .btn{min-height:42px;padding:0 18px;font-size:14px}
-.theme-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
-.theme-btn svg{width:18px;height:18px}
-.nav-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
-.nav-links a{text-decoration:none}.nav-links a:hover{color:var(--ink)}
-@media (max-width:860px){.nav-links{display:none}}
+.nav{position:sticky;top:0;z-index:60;background:rgba(10,22,40,.82);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;color:var(--white)}
+.nav.scrolled{border-bottom-color:var(--line-d);background:rgba(10,22,40,.94)}
+.nav .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 15px/1 var(--display);letter-spacing:.42em}
+.brand i{width:10px;height:10px;background:var(--lime);display:block}
+.links{display:flex;gap:28px;font-size:14px;color:var(--muted-d)}
+.links a{text-decoration:none;transition:color .2s}.links a:hover{color:var(--white)}
+@media (max-width:900px){.links{display:none}}
 
 /* hero */
-.hero{padding:clamp(36px,6vw,80px) 0 clamp(56px,8vw,96px);position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
-.hero h1{font-size:clamp(40px,6.2vw,74px);line-height:1.02;margin:18px 0 22px}
-.hero .lead{margin:0 0 30px}
+.hero{background:var(--navy);color:var(--white);padding:clamp(40px,6vw,88px) 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 20%,rgba(198,244,50,.13),transparent 60%),radial-gradient(50% 60% at 0% 100%,rgba(44,74,116,.55),transparent 60%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.12fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(40px,5.2vw,74px);line-height:1;letter-spacing:-.035em;margin:22px 0 24px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero .lead{margin-bottom:34px;color:#C3CBD8}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted);font-size:14px;padding:0;list-style:none}
-.trust li{display:flex;align-items:center;gap:8px}
-.trust svg{width:16px;height:16px;color:var(--cobalt-ink);flex:none}
-.product-name{font-size:14px;color:var(--muted);margin-top:14px}
-.stack{position:relative;aspect-ratio:16/12.4;perspective:1600px}
-.stack .card{position:absolute;width:78%;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.stack .c1{left:0;top:2%;transform:rotate(-4deg) translateZ(-60px)}
-.stack .c2{right:0;top:18%;transform:rotate(3deg)}
-.stack .c3{left:9%;bottom:0;width:84%;transform:rotate(-1deg) translateZ(40px)}
-.orbit{position:absolute;inset:auto;right:-140px;top:-120px;width:520px;height:520px;border-radius:50%;border:1px solid var(--rule);pointer-events:none}
-.orbit::before,.orbit::after{content:"";position:absolute;border-radius:50%;border:1px solid var(--rule)}
-.orbit::before{inset:80px}.orbit::after{inset:170px}
-.orbit i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--coral);top:50%;left:-6px}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stack{max-width:620px;width:100%;margin:6px auto 0}}
+.ticks{display:flex;flex-wrap:wrap;gap:10px 22px;margin:28px 0 0;padding:0;list-style:none;color:var(--muted-d);font-size:14px}
+.ticks li{display:flex;align-items:center;gap:8px}
+.ticks svg{width:16px;height:16px;color:var(--lime);flex:none}
+.stage{position:relative;aspect-ratio:16/13;perspective:2000px}
+.stage .slide{position:absolute;border-radius:12px;overflow:hidden;box-shadow:0 50px 100px -40px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06);background:var(--navy-2);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.stage .s-back{width:64%;right:0;top:0;opacity:.9;transform:rotateY(-10deg) rotateX(4deg) translateZ(-80px)}
+.stage .s-mid{width:64%;left:0;top:19%;transform:rotateY(-10deg) rotateX(4deg) translateZ(-30px)}
+.stage .s-front{width:80%;right:4%;bottom:0;transform:rotateY(-10deg) rotateX(4deg) translateZ(30px)}
+.stage:hover .s-back{transform:rotateY(-6deg) rotateX(3deg) translateZ(-80px) translateY(-10px)}
+.stage:hover .s-mid{transform:rotateY(-6deg) rotateX(3deg) translateZ(-30px) translateX(-8px)}
+.stage:hover .s-front{transform:rotateY(-6deg) rotateX(3deg) translateZ(50px)}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.stat{padding:26px 18px;border-left:1px solid var(--rule)}
-.stat:first-child{border-left:0}
-.stat b{display:block;font:400 clamp(36px,5vw,54px)/1 Georgia,serif;color:var(--ink)}
-.stat span{display:block;margin-top:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-.stat:nth-child(2) b{color:var(--coral-ink)}
-@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--rule)}}
+.stats{position:relative;margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr)}
+.stats div{padding:28px 0 32px;border-right:1px solid var(--line-d);padding-left:24px}
+.stats div:first-child{padding-left:0}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:800 clamp(34px,4.4vw,56px)/1 var(--display);letter-spacing:-.03em}
+.stats b sup{font-size:.45em;color:var(--lime);vertical-align:top;margin-left:2px}
+.stats span{display:block;color:var(--muted-d);font-size:14px;margin-top:10px}
+@media (max-width:720px){.stats{grid-template-columns:1fr 1fr}.stats div{padding-left:0;border-right:0;border-bottom:1px solid var(--line-d)}.stats div:nth-child(odd){border-right:1px solid var(--line-d)}.stats div:nth-child(even){padding-left:20px}.stats div:nth-child(n+3){border-bottom:0}}
 
-/* benefits */
-.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.benefit{background:var(--surface);border-radius:var(--radius);padding:30px 28px}
-.benefit .num{font:italic 400 30px/1 Georgia,serif;color:var(--coral-ink);margin-bottom:18px;display:block}
-.benefit p{color:var(--muted);margin:12px 0 0;font-size:16px}
-@media (max-width:860px){.benefits{grid-template-columns:1fr}}
+/* covers rail */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,42%);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 26px;margin:0 -20px;scrollbar-width:thin}
+.rail figure{margin:0;scroll-snap-align:start}
+.rail img{border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.rail figcaption{font-size:14px;color:var(--muted);margin-top:14px;display:flex;justify-content:space-between;gap:12px}
+.rail figcaption b{color:var(--ink);font-weight:600}
+@media (max-width:640px){.rail{grid-auto-columns:84%}}
 
-/* chart showcase */
-.dark-band{background:var(--deep);color:#F3F1EC;--muted:#B9C3E8;--rule:#2A3C86;--cobalt-ink:#B7C6F5;--coral-ink:#FF8A6E;--ink:#F3F1EC}
-.showcase{display:grid;grid-template-columns:340px 1fr;gap:clamp(24px,4vw,48px);align-items:start}
-.tabs{display:grid;gap:6px;position:sticky;top:96px}
-.tab{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 18px;border-radius:12px;color:var(--muted);transition:background .25s,color .25s}
-.tab .k{grid-row:span 2;font:italic 22px/1 Georgia,serif;color:var(--sky);opacity:.55;padding-top:2px}
-.tab strong{color:#F3F1EC;font-size:16px}
-.tab small{font-size:14px;line-height:1.45}
-.tab[aria-selected="true"]{background:rgba(255,255,255,.07);color:#DDE3F8}
-.tab[aria-selected="true"] .k{opacity:1;color:var(--coral)}
-.tab:focus-visible{outline:3px solid var(--coral)}
-.viewer{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);background:#fff;aspect-ratio:16/9}
-.viewer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.015);transition:opacity .5s ease,transform .8s ease}
-.viewer img.on{opacity:1;transform:none}
-.chart-types{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding:0;list-style:none}
-.chart-types li{font-size:13px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.07);color:#DDE3F8}
-@media (max-width:900px){.showcase{grid-template-columns:1fr}.tabs{position:static;grid-auto-flow:column;grid-auto-columns:minmax(220px,78%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;order:2}.tab{scroll-snap-align:start;background:rgba(255,255,255,.04)}}
+/* showcase */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{appearance:none;border:0;cursor:pointer;font:600 15px/1 var(--display);padding:13px 20px;border-radius:999px;background:var(--white);color:var(--charcoal);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s,color .2s,box-shadow .2s}
+.tab:hover{box-shadow:inset 0 0 0 1px var(--slate)}
+.tab[aria-selected="true"]{background:var(--navy);color:var(--white);box-shadow:none}
+.panel{display:grid;grid-template-columns:1.62fr 1fr;gap:20px;align-items:start}
+.panel[hidden]{display:none}
+.js .panel:not(.on){display:none}
+.panel .main{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--white);border:1px solid var(--line)}
+.panel .side{display:grid;gap:14px}
+.thumb{appearance:none;padding:0;border:0;cursor:pointer;display:grid;grid-template-columns:44% 1fr;gap:14px;align-items:center;text-align:left;background:var(--white);border-radius:12px;padding:8px;box-shadow:inset 0 0 0 1px var(--line);font:inherit;color:inherit;transition:box-shadow .2s,transform .2s}
+.thumb img{border-radius:7px}
+.thumb b{display:block;font:700 15px/1.25 var(--display);letter-spacing:-.01em}
+.thumb span{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:4px}
+.thumb:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px var(--slate)}
+.thumb.cur{box-shadow:inset 0 0 0 2px var(--navy)}
+.panel .note{font-size:14px;color:var(--muted);padding:6px 4px 0}
+@media (max-width:900px){.panel{grid-template-columns:1fr}.panel .side{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+.no-js-show{display:none}
+
+/* index */
+.index{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.index li{list-style:none;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:16px 18px;border-radius:12px;background:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.index b{font:800 18px/1 var(--display);color:var(--navy)}
+.index strong{display:block;font:700 15px/1.2 var(--display)}
+.index small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35;margin-top:3px}
+.index em{font-style:normal;font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums;white-space:nowrap}
+.index li.hl{background:var(--navy);color:var(--white);box-shadow:none}
+.index li.hl b{color:var(--lime)}.index li.hl small,.index li.hl em{color:var(--muted-d)}
+@media (max-width:980px){.index{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.index{grid-template-columns:1fr}}
+ul.index{padding:0;margin:0}
+
+/* charts */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-grid figure{margin:0;border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+@media (max-width:760px){.chart-grid{grid-template-columns:1fr}}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pills li{font-size:13.5px;padding:8px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-d);color:#D7DEE8}
+.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(40px,5vw,64px)}
+.feature-row article{padding:28px;border-radius:var(--r);background:var(--navy-2);box-shadow:inset 0 0 0 1px var(--line-d)}
+.feature-row h3{font-size:21px;margin:18px 0 10px;letter-spacing:-.015em}
+.feature-row p{color:var(--muted-d);font-size:15.5px}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--lime);color:var(--navy)}
+.ico svg{width:22px;height:22px}
+@media (max-width:900px){.feature-row{grid-template-columns:1fr}}
 
 /* dashboards */
-.dash-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.dash{grid-column:span 2;background:var(--surface);border-radius:var(--radius);padding:12px 12px 20px;transition:transform .3s ease,box-shadow .3s}
-.dash:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.dash.wide{grid-column:span 3}
-.dash img{border-radius:8px}
-.dash h3{font-size:19px;margin:16px 8px 4px}
-.dash p{margin:0 8px;color:var(--muted);font-size:15px}
-@media (max-width:860px){.dash-grid{grid-template-columns:1fr}.dash,.dash.wide{grid-column:auto}}
+.dash{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}
+.dash figure{margin:0;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--white)}
+.dash .col{display:grid;gap:20px}
+@media (max-width:860px){.dash{grid-template-columns:1fr}}
 
-/* chapters */
-.chapters{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;padding:0;margin:0;list-style:none;counter-reset:ch}
-.chapters li{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline;padding:18px 0;border-top:1px solid var(--rule)}
-.chapters li::before{counter-increment:ch;content:counter(ch,decimal-leading-zero);font:italic 18px Georgia,serif;color:var(--coral-ink)}
-.chapters b{font-weight:700}
-.chapters span{display:block;color:var(--muted);font-size:15px}
-.chapters em{font-style:normal;font-size:13px;color:var(--muted);white-space:nowrap}
-@media (max-width:760px){.chapters{grid-template-columns:1fr}}
+/* design system */
+.ds{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{border-radius:var(--r);background:var(--white);box-shadow:inset 0 0 0 1px var(--line);padding:clamp(24px,3vw,36px)}
+.card h3{font-size:24px;margin-bottom:10px}
+.card p.sub{color:var(--muted);font-size:15.5px;margin-bottom:24px}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sw div{border-radius:10px;aspect-ratio:1/1.08;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;font-size:11.5px;line-height:1.3;box-shadow:inset 0 0 0 1px rgba(10,22,40,.08)}
+.sw b{font-weight:600;display:block}
+.sw .dk{color:var(--white)}
+@media (max-width:560px){.sw{grid-template-columns:repeat(3,1fr)}}
+.type-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.type-row:last-child{border-bottom:0}
+.type-row span{font-size:13px;color:var(--muted);white-space:nowrap}
+.t-hero{font:800 46px/1 var(--display);letter-spacing:-.04em}
+.t-h1{font:700 26px/1.1 var(--display);letter-spacing:-.02em}
+.t-kpi{font:800 34px/1 var(--display);letter-spacing:-.03em}
+.t-body{font:400 16px/1.4 var(--body);color:var(--charcoal)}
+.t-label{font:500 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--charcoal)}
+.ds-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.ds-wide figure{margin:0}
+.ds-wide img{border-radius:12px;border:1px solid var(--line);box-shadow:0 30px 60px -36px rgba(10,22,40,.4)}
+.ds-wide figcaption{font-size:14px;color:var(--muted);margin-top:12px}
+.ds-wide figcaption b{color:var(--ink);font-weight:600}
+@media (max-width:900px){.ds{grid-template-columns:1fr}.ds-wide{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:0;padding:0;list-style:none}
+.facts li{display:flex;gap:10px;font-size:15px;color:var(--charcoal);line-height:1.45}
+.facts svg{width:18px;height:18px;color:var(--olive);flex:none;margin-top:2px}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}
 
-/* customise */
-.custom{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
-.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:0;padding:0;list-style:none}
-.palette li{display:grid;gap:8px;font-size:12px;color:var(--muted)}
-.palette i{display:block;aspect-ratio:1;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-.palette b{display:block;color:var(--ink);font-size:13px}
-.feat{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
-.feat li{display:grid;grid-template-columns:28px 1fr;gap:12px}
-.feat svg{width:22px;height:22px;color:var(--cobalt-ink);margin-top:2px}
-.feat span{color:var(--muted)}
-.type-specimen{display:flex;gap:28px;align-items:baseline;margin-top:30px;padding-top:24px;border-top:1px solid var(--rule)}
-.type-specimen div{display:grid}
-.type-specimen .g{font:400 44px/1 Georgia,serif}
-.type-specimen .a{font:700 40px/1 Arial,sans-serif}
-.type-specimen small{color:var(--muted);font-size:13px;margin-top:8px}
-@media (max-width:900px){.custom{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;padding:28px;border-radius:var(--r);background:var(--white);box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.steps li::before{content:"0" counter(s);font:800 14px/1 var(--display);letter-spacing:.1em;color:var(--slate);position:absolute;top:28px;right:28px}
+.steps li:first-child{background:var(--navy);color:var(--white);box-shadow:none}
+.steps li:first-child p{color:var(--muted-d)}
+.steps li:first-child::before{color:var(--lime)}
+.steps h3{font-size:20px;margin:18px 0 8px;letter-spacing:-.015em}
+.steps p{font-size:15px;color:var(--muted)}
+.steps .ico{background:var(--off);color:var(--navy)}
+.steps li:first-child .ico{background:var(--lime)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}}
 
-/* gallery */
-.gallery-btn{all:unset;cursor:zoom-in;display:block;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}
-.gallery-btn::after{content:"View all 60 slides";position:absolute;right:16px;bottom:16px;background:var(--deep);color:#fff;font:700 14px Arial,sans-serif;padding:11px 16px;border-radius:999px}
-.gallery-btn:focus-visible{outline:3px solid var(--coral);outline-offset:4px}
-.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
-.use{border-top:2px solid var(--ink);padding-top:16px}
-.use p{color:var(--muted);margin:8px 0 0;font-size:15px}
-@media (max-width:760px){.uses{grid-template-columns:1fr}}
+/* wall */
+.wall{border-radius:18px;overflow:hidden;box-shadow:0 60px 120px -50px rgba(0,0,0,.8),0 0 0 1px var(--line-d);display:block;position:relative}
+.wall img{width:100%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.wall:hover img{transform:scale(1.015)}
+.wall .open{position:absolute;right:16px;bottom:16px;background:var(--lime);color:var(--navy);font:700 14px/1 var(--display);padding:12px 16px;border-radius:999px;display:flex;gap:8px;align-items:center}
+.wall .open svg{width:16px;height:16px}
 
-/* inside + faq */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
-.inside{list-style:none;padding:0;margin:0}
-.inside li{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 0;border-top:1px solid var(--rule)}
-.inside li:last-child{border-bottom:1px solid var(--rule)}
-.inside span{color:var(--muted);text-align:right}
-details{border-top:1px solid var(--rule)}
-details:last-of-type{border-bottom:1px solid var(--rule)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:700}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font:400 24px/1 Georgia,serif;color:var(--coral-ink);transition:transform .25s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin:0 0 20px;color:var(--muted)}
-@media (max-width:860px){.split{grid-template-columns:1fr}}
+/* audience */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+@media (max-width:900px){.aud{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips li{padding:12px 18px;border-radius:999px;background:var(--off);font:600 15px/1 var(--display);color:var(--navy)}
+.uses{padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}
+.uses li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font:700 clamp(18px,2vw,22px)/1.2 var(--display);letter-spacing:-.015em}
+.uses li span{font:500 13px/1 var(--body);color:var(--slate);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 
-/* final cta */
-.final{background:var(--deep);color:#F3F1EC;border-radius:24px;padding:clamp(40px,7vw,80px);position:relative;overflow:hidden;text-align:center}
-.final h2{font-size:clamp(34px,5.4vw,60px)}
-.final p{color:#B9C3E8;max-width:52ch;margin:16px auto 30px}
-.final .orbit{border-color:#2A3C86;right:-180px;top:-200px}
-.final .orbit::before,.final .orbit::after{border-color:#2A3C86}
-.final .meta{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:14px;color:#B9C3E8}
-.rating{display:inline-flex;align-items:center;gap:8px}
-.rating svg{width:16px;height:16px;color:var(--coral)}
-footer{padding:40px 0 120px;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* offer / specs */
+.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+@media (max-width:900px){.offer{grid-template-columns:1fr}}
+.specs{margin:0;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--line)}
+.specs dt,.specs dd{padding:14px 0;border-bottom:1px solid var(--line);margin:0;font-size:15px}
+.specs dt{color:var(--muted);padding-right:24px;white-space:nowrap}
+.specs dd{color:var(--ink);font-weight:500}
+.buy-card{border-radius:20px;background:var(--navy);color:var(--white);padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden}
+.buy-card::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(198,244,50,.5)}
+.buy-card .nm{font:700 15px/1.3 var(--display);color:var(--muted-d)}
+.price{font:800 clamp(56px,7vw,84px)/1 var(--display);letter-spacing:-.04em}
+.price small{display:block;font:500 14px/1.4 var(--body);letter-spacing:0;color:var(--muted-d);margin-top:10px}
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.incl li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:#DCE2EB}
+.incl svg{width:18px;height:18px;color:var(--lime);flex:none;margin-top:3px}
+.buy-card .btn{width:100%}
+.buy-card .fine{font-size:13px;color:var(--muted-d);text-align:center}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+.faq-grid .head{position:sticky;top:100px;margin-bottom:0}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-grid .head{position:static}}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font:700 clamp(17px,1.8vw,20px)/1.3 var(--display);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--off);transition:transform .25s,background .25s}
+.faq summary i svg{width:14px;height:14px}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--lime)}
+.faq details p{padding:0 50px 22px 0;color:var(--muted);font-size:16px}
+
+/* final */
+.final{background:var(--lime);color:var(--navy);text-align:center;overflow:hidden}
+.final h2{font-size:clamp(40px,6.4vw,88px);letter-spacing:-.04em;line-height:.98;max-width:14ch;margin:20px auto 22px}
+.final p{max-width:46ch;margin:0 auto 34px;font-size:clamp(17px,1.6vw,20px);color:var(--charcoal)}
+.final .tag::before{background:var(--navy)}
+.final .tag{color:var(--navy)}
+.final .tagline{font:700 15px/1 var(--display);letter-spacing:.02em;margin-top:28px;color:var(--navy);opacity:.75}
+.final .ring{position:absolute;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(10,22,40,.14);pointer-events:none}
+
+footer{background:var(--navy);color:var(--muted-d);padding:40px 0 calc(40px + env(safe-area-inset-bottom));font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
+footer .brand{color:var(--white)}
 
 /* sticky mobile bar */
-.buybar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:var(--deep);color:#fff;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .35s ease}
-.buybar.show{transform:none}
-.buybar .t{font-size:14px;line-height:1.25;min-width:0}
-.buybar .t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.buybar .t span{color:#B9C3E8}
-.buybar .btn{min-height:46px;padding:0 20px;font-size:15px}
-@media (max-width:760px){.buybar{display:flex}}
-
-/* modal */
-dialog{border:0;padding:0;background:transparent;max-width:min(1200px,96vw);width:100%;max-height:92vh}
-dialog::backdrop{background:rgba(8,14,44,.82);backdrop-filter:blur(4px)}
-.modal{background:var(--bg-2);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;max-height:92vh}
-.modal header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--rule)}
-.modal .body{overflow:auto;padding:14px}
-.close{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;font-size:22px;line-height:1}
+.mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:70;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:rgba(10,22,40,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--white);box-shadow:0 20px 40px -16px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .35s ease}
+.mbar.show{transform:none}
+.mbar b{font:700 14px/1.2 var(--display)}
+.mbar small{display:block;color:var(--muted-d);font-size:12px}
+.mbar .btn{min-height:46px;padding:0 20px;font-size:15px}
+@media (max-width:760px){.mbar{display:flex}}
 
 /* reveal */
-/* content is visible without JS; the reveal only applies once the script has run */
-.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.js .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .js .reveal{opacity:1;transform:none;transition:none}
-  .stack .card,.viewer img,.btn,.dash,.buybar{transition:none}
-}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.stage .slide,.wall img,.btn,.btn svg{transition:none}}
 </style>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
+
+<a class="skip" href="#inside">Skip to content</a>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Vanta — back to top">VANTA</a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#charts">Charts</a><a href="#dashboards">Dashboards</a><a href="#slides">All slides</a><a href="#faq">FAQ</a>
+    <a class="brand" href="#top" aria-label="Vanta — back to top"><i></i>VANTA</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#inside">Inside</a><a href="#charts">Charts</a><a href="#system">Design system</a><a href="#all">All slides</a><a href="#faq">FAQ</a>
     </nav>
-    <div class="nav-r">
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor"/></svg>
-      </button>
-      <button class="btn btn-buy" type="button" data-gumroad-action="buy">Buy · <span data-gumroad-field="price">See price</span></button>
-    </div>
+    <a class="btn btn-lime btn-sm" data-gumroad-action="buy">Buy · <span data-gumroad-field="price">$14</span></a>
   </div>
 </header>
 
-<main id="main">
-<!-- HERO -->
-<section class="hero" id="top" aria-labelledby="hero-title">
-  <div class="orbit" aria-hidden="true"><i></i></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">PowerPoint template · 16:9</span>
-      <h1 id="hero-title">Board-ready business decks. <em class="accent">Without the blank slide.</em></h1>
-      <p class="lead">60 editorial slides and 42 native, editable PowerPoint charts for sales, finance, strategy and market analysis. Paste in your numbers, keep the polish.</p>
-      <div class="cta-row">
-        <button class="btn btn-buy" type="button" data-gumroad-action="buy" id="heroBuy">
-          Get the template <span class="sep" aria-hidden="true"></span> <span data-gumroad-field="price">See price</span>
-        </button>
-        <button class="btn btn-ghost" type="button" data-open-gallery>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          See all 60 slides
-        </button>
-      </div>
-      <ul class="trust">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Every chart is editable</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No fonts to install</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No stock photos to replace</li>
-      </ul>
-      <p class="product-name"><span data-gumroad-field="name">Business Presentation Pro</span> by Vanta</p>
-    </div>
-    <div class="stack" id="stack" aria-label="Preview of three slides from the template">
-      <div class="card c1"><img src="https://public-files.gumroad.com/x50pgj0dskhf9qbu2jnrojuaadgp" width="960" height="540" alt="Product performance slide: stacked revenue columns by product with a dark summary panel"></div>
-      <div class="card c2"><img src="https://public-files.gumroad.com/1orru8r2c3rta2wii5ncfqzxr028" width="960" height="540" alt="Market share slide with a doughnut chart and a stacked bar trend"></div>
-      <div class="card c3"><img src="https://public-files.gumroad.com/nlqynniom2u0i7xgyplfnik7c9mk" width="1200" height="675" alt="Cover slide: Clarity that moves business forward, with the Vanta orbit artwork"></div>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<!-- STATS -->
-<div class="wrap reveal">
-  <dl class="stats">
-    <div class="stat"><dt class="sr">Slides</dt><dd style="margin:0"><b>60</b><span>Slides</span></dd></div>
-    <div class="stat"><dt class="sr">Charts</dt><dd style="margin:0"><b>42</b><span>Native charts</span></dd></div>
-    <div class="stat"><dt class="sr">Dashboards</dt><dd style="margin:0"><b>5</b><span>Dashboards</span></dd></div>
-    <div class="stat"><dt class="sr">Chapters</dt><dd style="margin:0"><b>9</b><span>Story chapters</span></dd></div>
-  </dl>
-</div>
-
-<!-- BENEFITS -->
-<section aria-labelledby="why-title">
+<section class="hero dark" aria-labelledby="hero-title">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Why it saves you hours</span>
-      <h2 id="why-title">Designed once, properly. <em class="accent">Reused every quarter.</em></h2>
-    </div>
-    <div class="benefits">
-      <article class="benefit reveal"><span class="num">01</span><h3>Charts that stay charts</h3><p>All 42 are native PowerPoint charts with their own data sheet. Right-click, Edit Data, and the chart redraws. No pictures of charts.</p></article>
-      <article class="benefit reveal"><span class="num">02</span><h3>Your brand in one step</h3><p>Ten theme colours and two theme fonts drive the design. Change them once in Design › Variants and shapes and text follow across the deck.</p></article>
-      <article class="benefit reveal"><span class="num">03</span><h3>The story is already built</h3><p>Nine chapters run from cover to call to action, with headlines written as conclusions and speaker notes on every slide.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- CHART SHOWCASE -->
-<section class="dark-band" id="charts" aria-labelledby="charts-title">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">42 native charts</span>
-      <h2 id="charts-title">Edit the numbers. <em class="accent">The chart follows.</em></h2>
-      <p class="lead">From executive dashboards to waterfalls, every visual is built with PowerPoint’s own chart engine, so it stays crisp and editable.</p>
-    </div>
-    <div class="showcase reveal">
-      <div class="tabs" role="tablist" aria-label="Chart examples">
-        <button class="tab" role="tab" id="t0" aria-controls="viewer" aria-selected="true" data-img="v0"><span class="k">01</span><strong>Monthly performance</strong><small>An annotated line chart that tells the year’s story.</small></button>
-        <button class="tab" role="tab" id="t1" aria-controls="viewer" aria-selected="false" data-img="v1" tabindex="-1"><span class="k">02</span><strong>Sales funnel</strong><small>A centred, native funnel with stage conversion.</small></button>
-        <button class="tab" role="tab" id="t2" aria-controls="viewer" aria-selected="false" data-img="v2" tabindex="-1"><span class="k">03</span><strong>Revenue bridge</strong><small>Waterfall with totals, increases and decreases.</small></button>
-        <button class="tab" role="tab" id="t3" aria-controls="viewer" aria-selected="false" data-img="v3" tabindex="-1"><span class="k">04</span><strong>Growth combo</strong><small>Columns plus a line on a secondary axis.</small></button>
-        <button class="tab" role="tab" id="t4" aria-controls="viewer" aria-selected="false" data-img="v4" tabindex="-1"><span class="k">05</span><strong>Positioning matrix</strong><small>Bubble chart over editable quadrants.</small></button>
-        <button class="tab" role="tab" id="t5" aria-controls="viewer" aria-selected="false" data-img="v5" tabindex="-1"><span class="k">06</span><strong>Cash flow</strong><small>Inflow and outflow columns with a balance line.</small></button>
-      </div>
-      <div>
-        <div class="viewer" id="viewer" role="tabpanel" aria-live="polite">
-          <img id="v0" class="on" src="https://public-files.gumroad.com/6j0tybypd1k4vkjij1ltjg8hr2io" width="960" height="540" alt="Monthly bookings slide: a 24-month line chart with three annotated moments">
-          <img id="v1" src="https://public-files.gumroad.com/j2vvcabmdplbt5q7p1hrcqcicz2b" width="960" height="540" alt="Sales funnel slide: centred bar funnel from 3,120 leads to 212 customers with stage conversion rates" loading="lazy">
-          <img id="v2" src="https://public-files.gumroad.com/wfna7w62eg6le8v3n3sj5bfva126" width="960" height="540" alt="Revenue bridge waterfall slide from 2025 to 2026 revenue" loading="lazy">
-          <img id="v3" src="https://public-files.gumroad.com/f68iymti6zjikvem93eq4aar489s" width="960" height="540" alt="Growth slide with revenue columns and a year-over-year growth line" loading="lazy">
-          <img id="v4" src="https://public-files.gumroad.com/5cqu5vwsridknj8e6cxxyqmmcyb4" width="960" height="540" alt="Positioning matrix slide: bubble chart across four quadrants" loading="lazy">
-          <img id="v5" src="https://public-files.gumroad.com/vxt4vs9by4ajl4om0ftffa4094fd" width="960" height="540" alt="Cash flow slide: monthly net cash flow columns with a closing cash balance line" loading="lazy">
+    <div class="hero-grid">
+      <div class="rv">
+        <span class="tag"><span data-gumroad-field="name">Business Sales Template</span></span>
+        <h1 id="hero-title">Make your next presentation look like it took <em>days</em> to build.</h1>
+        <p class="lead">Without spending days building it. Vertex is a premium PowerPoint system for sales, strategy, marketing and executive reporting — 99 fully editable slides built on one grid, one palette and one type system.</p>
+        <div class="cta-row">
+          <a class="btn btn-lime" data-gumroad-action="buy">Get the template <span class="div"></span> <span data-gumroad-field="price">$14</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-line" href="#all">See all 99 slides</a>
         </div>
-        <ul class="chart-types" aria-label="Chart types included">
-          <li>Column &amp; bar</li><li>Stacked &amp; 100% stacked</li><li>Line &amp; area</li><li>Combo with secondary axis</li><li>Doughnut gauges</li><li>Pie</li><li>Radar</li><li>Scatter</li><li>Bubble</li><li>Funnel</li><li>Waterfall</li>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>PowerPoint .pptx · 16:9</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No stock photos required</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Speaker notes on every slide</li>
+        </ul>
+      </div>
+      <div class="stage rv" aria-label="Three slides from the template">
+        <div class="slide s-back"><img src="{{s13}}" width="1600" height="900" alt="Dark cover slide reading Grow. Faster. Smarter. Together."></div>
+        <div class="slide s-mid"><img src="{{s64}}" width="1600" height="900" alt="Executive dashboard slide with six KPIs, a quarterly revenue chart, a revenue mix doughnut and initiative status pills"></div>
+        <div class="slide s-front"><img src="{{s01}}" width="1600" height="900" alt="Vertex cover slide with geometric navy and lime artwork and the figures 85+ layouts, 35+ native charts, 90 vector icons, 100% editable"></div>
+      </div>
+    </div>
+    <div class="stats rv" role="list">
+      <div role="listitem"><b>99</b><span>fully editable slides</span></div>
+      <div role="listitem"><b>37</b><span>native PowerPoint charts</span></div>
+      <div role="listitem"><b>90</b><span>editable vector icons</span></div>
+      <div role="listitem"><b>100<sup>%</sup></b><span>editable text, shapes, charts &amp; colours</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-light" aria-labelledby="covers-title">
+  <div class="wrap">
+    <div class="head split rv">
+      <div><span class="tag">Covers &amp; navigation</span><h2 class="h2" id="covers-title" style="margin-top:18px">Open strong<span class="dot">.</span></h2></div>
+      <p class="lead">Five cover designs in light and dark, followed by agenda, contents, section-divider and chapter-intro slides — so the deck feels finished before you reach the first chart.</p>
+    </div>
+    <div class="rail rv" tabindex="0" aria-label="Cover slides, scroll horizontally">
+      <figure><img src="{{s11}}" width="1280" height="720" loading="lazy" alt="Light cover slide: Build what moves the market, with geometric artwork"><figcaption><b>Annual business review</b><span>Light</span></figcaption></figure>
+      <figure><img src="{{s13}}" width="1280" height="720" loading="lazy" alt="Dark cover slide: Grow. Faster. Smarter. Together."><figcaption><b>Go-to-market plan</b><span>Dark</span></figcaption></figure>
+      <figure><img src="{{s14}}" width="1280" height="720" loading="lazy" alt="Split cover slide: Series B Funding Proposal with three headline figures on navy"><figcaption><b>Investor presentation</b><span>Split</span></figcaption></figure>
+      <figure><img src="{{s15}}" width="1280" height="720" loading="lazy" alt="Dark cover slide: Executive Performance Review with a lime arc"><figcaption><b>Board of directors</b><span>Dark</span></figcaption></figure>
+      <figure><img src="{{s12}}" width="1280" height="720" loading="lazy" alt="Minimal light cover slide: Quarterly Business Review"><figcaption><b>Quarterly business review</b><span>Minimal</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="off on-light" id="inside" aria-labelledby="inside-title">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="tag">What's inside</span>
+      <h2 class="h2" id="inside-title">Every slide a business story needs<span class="dot">.</span></h2>
+      <p class="lead">Sales, performance, finance, strategy, market and results — each section is a set of ready layouts. Choose one, drop in your content, adjust the colours and numbers, and you're ready to present.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Slide categories">
+      <button class="tab" role="tab" id="t-sales" aria-controls="p-sales" aria-selected="true">Sales</button>
+      <button class="tab" role="tab" id="t-kpi" aria-controls="p-kpi" aria-selected="false" tabindex="-1">Performance &amp; KPIs</button>
+      <button class="tab" role="tab" id="t-fin" aria-controls="p-fin" aria-selected="false" tabindex="-1">Finance</button>
+      <button class="tab" role="tab" id="t-str" aria-controls="p-str" aria-selected="false" tabindex="-1">Strategy</button>
+      <button class="tab" role="tab" id="t-mkt" aria-controls="p-mkt" aria-selected="false" tabindex="-1">Market &amp; competition</button>
+      <button class="tab" role="tab" id="t-res" aria-controls="p-res" aria-selected="false" tabindex="-1">Company &amp; results</button>
+    </div>
+
+    <div class="panel on rv" role="tabpanel" id="p-sales" aria-labelledby="t-sales">
+      <div class="main"><img src="{{s49}}" width="1280" height="720" loading="lazy" alt="Sales funnel slide from leads to closed-won with stage conversion rates"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s49}}" data-alt="Sales funnel slide from leads to closed-won with stage conversion rates"><img src="{{s49}}" width="1280" height="720" loading="lazy" alt=""><div><b>Sales funnel</b><span>Volume and conversion by stage</span></div></button>
+        <button class="thumb" data-src="{{s50}}" data-alt="Pipeline slide with deals grouped by stage and quarter coverage"><img src="{{s50}}" width="1280" height="720" loading="lazy" alt=""><div><b>Pipeline by stage</b><span>Open deals and coverage</span></div></button>
+        <button class="thumb" data-src="{{s52}}" data-alt="Bookings versus target slide with monthly columns and a target line"><img src="{{s52}}" width="1280" height="720" loading="lazy" alt=""><div><b>Bookings vs target</b><span>Monthly trend with KPI panel</span></div></button>
+        <button class="thumb" data-src="{{s53}}" data-alt="Dark slide comparing acquisition cost by channel"><img src="{{s53}}" width="1280" height="720" loading="lazy" alt=""><div><b>Channel efficiency</b><span>Acquisition cost by channel</span></div></button>
+      </div>
+    </div>
+
+    <div class="panel rv" role="tabpanel" id="p-kpi" aria-labelledby="t-kpi">
+      <div class="main"><img src="{{s64}}" width="1280" height="720" loading="lazy" alt="Executive dashboard slide with six KPIs, quarterly revenue, revenue mix and initiatives"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s64}}" data-alt="Executive dashboard slide with six KPIs, quarterly revenue, revenue mix and initiatives"><img src="{{s64}}" width="1280" height="720" loading="lazy" alt=""><div><b>Executive dashboard</b><span>KPIs, trend, mix and status</span></div></button>
+        <button class="thumb" data-src="{{s63}}" data-alt="KPI dashboard slide with headline tiles, an actual versus plan line chart and annual goals"><img src="{{s63}}" width="1280" height="720" loading="lazy" alt=""><div><b>KPI dashboard</b><span>Actual vs plan with goal bars</span></div></button>
+        <button class="thumb" data-src="{{s66}}" data-alt="Monthly recurring revenue area chart with annotated events"><img src="{{s66}}" width="1280" height="720" loading="lazy" alt=""><div><b>Revenue trend</b><span>Annotated area chart</span></div></button>
+        <button class="thumb" data-src="{{s68}}" data-alt="KPI scorecard table with owners, targets, variance and status"><img src="{{s68}}" width="1280" height="720" loading="lazy" alt=""><div><b>KPI scorecard</b><span>Native table with status</span></div></button>
+      </div>
+    </div>
+
+    <div class="panel rv" role="tabpanel" id="p-fin" aria-labelledby="t-fin">
+      <div class="main"><img src="{{s71}}" width="1280" height="720" loading="lazy" alt="Revenue to EBITDA bridge waterfall slide"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s71}}" data-alt="Revenue to EBITDA bridge waterfall slide"><img src="{{s71}}" width="1280" height="720" loading="lazy" alt=""><div><b>Profit bridge</b><span>Waterfall from revenue to EBITDA</span></div></button>
+        <button class="thumb" data-src="{{s69}}" data-alt="Revenue growth slide with an area chart and headline metrics"><img src="{{s69}}" width="1280" height="720" loading="lazy" alt=""><div><b>Revenue growth</b><span>Multi-year area chart</span></div></button>
+        <button class="thumb" data-src="{{s74}}" data-alt="Three-tier pricing slide with a highlighted middle plan"><img src="{{s74}}" width="1280" height="720" loading="lazy" alt=""><div><b>Pricing tiers</b><span>Three plans, one highlighted</span></div></button>
+        <button class="thumb" data-src="{{s75}}" data-alt="Unit economics slide showing lifetime value, acquisition cost and ratio"><img src="{{s75}}" width="1280" height="720" loading="lazy" alt=""><div><b>Unit economics</b><span>LTV, CAC and payback</span></div></button>
+      </div>
+    </div>
+
+    <div class="panel rv" role="tabpanel" id="p-str" aria-labelledby="t-str">
+      <div class="main"><img src="{{s79}}" width="1280" height="720" loading="lazy" alt="SWOT analysis slide with four quadrants"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s79}}" data-alt="SWOT analysis slide with four quadrants"><img src="{{s79}}" width="1280" height="720" loading="lazy" alt=""><div><b>SWOT</b><span>Four-quadrant analysis</span></div></button>
+        <button class="thumb" data-src="{{s78}}" data-alt="Strategy house slide with vision, pillars and foundation"><img src="{{s78}}" width="1280" height="720" loading="lazy" alt=""><div><b>Strategy on a page</b><span>Vision, pillars, foundation</span></div></button>
+        <button class="thumb" data-src="{{s80}}" data-alt="Three-step plan slide with chevrons and milestone metrics"><img src="{{s80}}" width="1280" height="720" loading="lazy" alt=""><div><b>Three-step plan</b><span>Chevrons with targets</span></div></button>
+        <button class="thumb" data-src="{{s82}}" data-alt="Roadmap Gantt slide with quarterly bars and milestones"><img src="{{s82}}" width="1280" height="720" loading="lazy" alt=""><div><b>Roadmap</b><span>Gantt with milestones</span></div></button>
+      </div>
+    </div>
+
+    <div class="panel rv" role="tabpanel" id="p-mkt" aria-labelledby="t-mkt">
+      <div class="main"><img src="{{s40}}" width="1280" height="720" loading="lazy" alt="TAM, SAM and SOM market sizing slide with nested circles"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s40}}" data-alt="TAM, SAM and SOM market sizing slide with nested circles"><img src="{{s40}}" width="1280" height="720" loading="lazy" alt=""><div><b>TAM · SAM · SOM</b><span>Market sizing</span></div></button>
+        <button class="thumb" data-src="{{s39}}" data-alt="Market growth slide with KPI tiles and an actual versus forecast line chart"><img src="{{s39}}" width="1280" height="720" loading="lazy" alt=""><div><b>Market growth</b><span>Actual vs forecast</span></div></button>
+        <button class="thumb" data-src="{{s47}}" data-alt="Head-to-head competitor comparison slide using Harvey balls"><img src="{{s47}}" width="1280" height="720" loading="lazy" alt=""><div><b>Head-to-head</b><span>Harvey-ball comparison</span></div></button>
+        <button class="thumb" data-src="{{s22}}" data-alt="Company timeline slide with milestones"><img src="{{s22}}" width="1280" height="720" loading="lazy" alt=""><div><b>Company timeline</b><span>Milestones by year</span></div></button>
+      </div>
+    </div>
+
+    <div class="panel rv" role="tabpanel" id="p-res" aria-labelledby="t-res">
+      <div class="main"><img src="{{s87}}" width="1280" height="720" loading="lazy" alt="Before and after slide comparing four metrics on light and dark halves"></div>
+      <div class="side">
+        <button class="thumb cur" data-src="{{s87}}" data-alt="Before and after slide comparing four metrics on light and dark halves"><img src="{{s87}}" width="1280" height="720" loading="lazy" alt=""><div><b>Before / after</b><span>Impact in four numbers</span></div></button>
+        <button class="thumb" data-src="{{s86}}" data-alt="Case study slide with challenge, approach and results"><img src="{{s86}}" width="1280" height="720" loading="lazy" alt=""><div><b>Case study</b><span>Challenge, approach, results</span></div></button>
+        <button class="thumb" data-src="{{s21}}" data-alt="Business at a glance slide with a large lime KPI card and four smaller metrics"><img src="{{s21}}" width="1280" height="720" loading="lazy" alt=""><div><b>At a glance</b><span>Company KPIs</span></div></button>
+        <button class="thumb" data-src="{{s99}}" data-alt="Dark closing slide reading Thank you with contact details"><img src="{{s99}}" width="1280" height="720" loading="lazy" alt=""><div><b>Closing</b><span>Thank-you and contact</span></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="on-light" aria-labelledby="index-title">
+  <div class="wrap">
+    <div class="head split rv">
+      <div><span class="tag">Template index</span><h2 class="h2" id="index-title" style="margin-top:18px">15 sections. 99 slides<span class="dot">.</span></h2></div>
+      <p class="lead">Organised the way a business presentation is actually built — from the opening cover to the closing ask. A ten-slide guide comes first so you know exactly how everything works.</p>
+    </div>
+    <ul class="index rv">
+      <li class="hl"><b>00</b><div><strong>Template guide</strong><small>How to use, palette, type, grid, components, icons, charts</small></div><em>1–10</em></li>
+      <li><b>•</b><div><strong>Covers &amp; navigation</strong><small>Five covers, agenda, contents, dividers</small></div><em>11–19</em></li>
+      <li><b>01</b><div><strong>Company</strong><small>Overview, timeline, model</small></div><em>20–26</em></li>
+      <li><b>02</b><div><strong>Problem &amp; solution</strong><small>Pain points, solution, value</small></div><em>27–32</em></li>
+      <li><b>03</b><div><strong>Product</strong><small>Features, architecture, roadmap</small></div><em>33–38</em></li>
+      <li><b>04</b><div><strong>Market</strong><small>TAM/SAM/SOM, segments, trends</small></div><em>39–45</em></li>
+      <li><b>05</b><div><strong>Competition</strong><small>Matrix, head-to-head, radar</small></div><em>46–48</em></li>
+      <li><b>06</b><div><strong>Sales</strong><small>Funnel, pipeline, channels</small></div><em>49–56</em></li>
+      <li><b>07</b><div><strong>Marketing</strong><small>Campaign, mix, journey</small></div><em>57–62</em></li>
+      <li><b>08</b><div><strong>Performance &amp; KPIs</strong><small>Dashboards, trends, scorecard</small></div><em>63–68</em></li>
+      <li><b>09</b><div><strong>Finance</strong><small>Revenue, bridge, forecast, pricing</small></div><em>69–76</em></li>
+      <li><b>10</b><div><strong>Strategy</strong><small>Priorities, SWOT, roadmap</small></div><em>77–82</em></li>
+      <li><b>11</b><div><strong>Operations</strong><small>Workflow, cycle, rollout</small></div><em>83–85</em></li>
+      <li><b>12</b><div><strong>Case study</strong><small>Challenge, before/after, impact</small></div><em>86–88</em></li>
+      <li><b>13</b><div><strong>Comparison &amp; tables</strong><small>Options, plan and data tables</small></div><em>89–92</em></li>
+      <li><b>•</b><div><strong>Chart library</strong><small>Bars, lines, pies, combos</small></div><em>93–96</em></li>
+      <li><b>14</b><div><strong>Closing</strong><small>Quote, next steps, thank you</small></div><em>97–99</em></li>
+    </ul>
+  </div>
+</section>
+
+<section class="dark" id="charts" aria-labelledby="charts-title">
+  <div class="wrap">
+    <div class="head split rv">
+      <div><span class="tag">Native charts</span><h2 class="h2" id="charts-title" style="margin-top:18px">Real charts. Real data<span class="dot">.</span></h2></div>
+      <div style="display:grid;gap:22px">
+        <p class="lead">Every one of the 37 charts is a real PowerPoint chart backed by an embedded worksheet — never a picture. Right-click › Edit Data, type your numbers, and the chart redraws in the Vertex style.</p>
+        <ul class="pills" aria-label="Chart types">
+          <li>Bar</li><li>Column</li><li>Clustered</li><li>Stacked</li><li>100% stacked</li><li>Line</li><li>Area</li><li>Stacked area</li><li>Column + line combo</li><li>Doughnut</li><li>Pie</li><li>Radar</li><li>Bubble</li><li>Waterfall</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chart-grid rv">
+      <figure><img src="{{s93}}" width="1280" height="720" loading="lazy" alt="Chart library slide: ranked horizontal bar and clustered column charts"></figure>
+      <figure><img src="{{s94}}" width="1280" height="720" loading="lazy" alt="Chart library slide: multi-series line and stacked area charts"></figure>
+      <figure><img src="{{s95}}" width="1280" height="720" loading="lazy" alt="Chart library slide: pie, doughnut, radar and progress rings"></figure>
+      <figure><img src="{{s96}}" width="1280" height="720" loading="lazy" alt="Chart library slide: column and line combo, 100% stacked column and bubble charts"></figure>
+    </div>
+    <div class="feature-row">
+      <article class="rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Charts that follow your theme</h3>
+        <p>Every series points at a theme colour, so recolouring the template recolours the charts with it.</p>
+      </article>
+      <article class="rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg></div>
+        <h3>Native tables</h3>
+        <p>The KPI scorecard, forecast, plan comparison and P&amp;L are real PowerPoint tables you can type straight into.</p>
+      </article>
+      <article class="rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.5 8.5l7 7M18 9v6M6 15V9"/></svg></div>
+        <h3>Diagrams built from shapes</h3>
+        <p>Funnels, Gantt, treemap, Harvey balls, bullet charts, cycle, hub-and-spoke, tree, Ansoff, SWOT, positioning matrix and a strategy house.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="on-light" aria-labelledby="dash-title">
+  <div class="wrap">
+    <div class="head split rv">
+      <div><span class="tag">Performance &amp; KPIs</span><h2 class="h2" id="dash-title" style="margin-top:18px">Dashboards ready for the boardroom<span class="dot">.</span></h2></div>
+      <p class="lead">Headline numbers, trends, mix and status on a single slide — the layouts leadership teams expect, already balanced and aligned.</p>
+    </div>
+    <div class="dash rv">
+      <figure><img src="{{s64}}" width="1280" height="720" loading="lazy" alt="Executive dashboard slide"></figure>
+      <div class="col">
+        <figure><img src="{{s63}}" width="1280" height="720" loading="lazy" alt="KPI dashboard slide"></figure>
+        <figure><img src="{{s68}}" width="1280" height="720" loading="lazy" alt="KPI scorecard table slide"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="off on-light" id="system" aria-labelledby="system-title">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="tag">The Vertex design system</span>
+      <h2 class="h2" id="system-title">One grid. One palette. One type system<span class="dot">.</span></h2>
+      <p class="lead">Every slide is built from the same rules, which is why the deck stays consistent no matter which layouts you combine.</p>
+    </div>
+    <div class="ds">
+      <div class="card rv">
+        <h3>Colour, in one click</h3>
+        <p class="sub">Ten theme colours. Every shape, text run and chart series points at a theme slot, so Design › Variants › Colors recolours the whole template at once.</p>
+        <div class="sw">
+          <div class="dk" style="background:#0A1628"><b>Deep Navy</b>#0A1628</div>
+          <div style="background:#C6F432;color:#0A1628"><b>Electric Lime</b>#C6F432</div>
+          <div style="background:#F3F5F7"><b>Off-white</b>#F3F5F7</div>
+          <div style="background:#FFFFFF"><b>White</b>#FFFFFF</div>
+          <div class="dk" style="background:#2E3645"><b>Charcoal</b>#2E3645</div>
+          <div class="dk" style="background:#2C4A74"><b>Steel</b>#2C4A74</div>
+          <div class="dk" style="background:#6B7688"><b>Slate</b>#6B7688</div>
+          <div style="background:#D5DBE3"><b>Mist</b>#D5DBE3</div>
+          <div class="dk" style="background:#17253D"><b>Navy 2</b>#17253D</div>
+          <div class="dk" style="background:#5B7A0C"><b>Olive</b>#5B7A0C</div>
+        </div>
+      </div>
+      <div class="card rv">
+        <h3>Type with a clear hierarchy</h3>
+        <p class="sub">Manrope for display and headings, Inter for reading — two free Google Fonts (SIL Open Font License), nine defined roles.</p>
+        <div class="type-row"><div class="t-hero">Grow.</div><span>Display · Manrope ExtraBold</span></div>
+        <div class="type-row"><div class="t-h1">Headline states the message</div><span>H1 · Manrope Bold</span></div>
+        <div class="type-row"><div class="t-kpi">$48.6M</div><span>KPI · Manrope ExtraBold</span></div>
+        <div class="type-row"><div class="t-body">Clear, concise supporting copy for every slide.</div><span>Body · Inter</span></div>
+        <div class="type-row"><div class="t-label">Section label</div><span>Label · Inter Medium</span></div>
+      </div>
+      <div class="card ds-wide rv">
+        <figure><img src="{{s07}}" width="1280" height="720" loading="lazy" alt="Component library slide with KPI cards, pills, buttons, progress bar and icon badges"><figcaption><b>Component library.</b> KPI cards, pills, buttons, timelines, quote and comparison blocks.</figcaption></figure>
+        <figure><img src="{{s09}}" width="1280" height="720" loading="lazy" alt="Icon library slide showing a grid of line icons"><figcaption><b>90 vector icons.</b> Phosphor icons as SVG — recolour with Graphics Format › Fill.</figcaption></figure>
+        <figure><img src="{{s04}}" width="1280" height="720" loading="lazy" alt="Colour palette guide slide"><figcaption><b>Built-in guide.</b> Palette, typography, grid and chart guidance inside the deck.</figcaption></figure>
+      </div>
+      <div class="card rv" style="grid-column:1/-1">
+        <ul class="facts">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>12-column grid with consistent margins, gutters and corner radius</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Six slide masters: Content Light, Off-white and Dark, plus Blank Light, Dark and White</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Speaker notes on every slide explain the layout and how to edit it</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No stock photography — built on typography, data, icons and shapes</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DASHBOARDS -->
-<section id="dashboards" aria-labelledby="dash-title">
+<section class="on-light" aria-labelledby="how-title">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Five dashboards</span>
-      <h2 id="dash-title">The whole business <em class="accent">on one slide.</em></h2>
+    <div class="head split rv">
+      <div><span class="tag">How it works</span><h2 class="h2" id="how-title" style="margin-top:18px">From download to finished deck<span class="dot">.</span></h2></div>
+      <p class="lead">Everything is native PowerPoint, so there's no plug-in to install and no advanced design skills required.</p>
     </div>
-    <div class="dash-grid">
-      <article class="dash wide reveal"><img src="https://public-files.gumroad.com/ncmzzjpb8zf0a9y2kjfu42nh2u8y" width="1200" height="675" alt="Executive performance dashboard slide" loading="lazy"><h3>Executive</h3><p>Bookings, revenue, win rate and cash with trend charts.</p></article>
-      <article class="dash wide reveal"><img src="https://public-files.gumroad.com/qboulej9o01mdcb97v7pcai18pq2" width="960" height="540" alt="KPI dashboard slide with three gauge charts and four KPI tiles" loading="lazy"><h3>KPI</h3><p>Native gauges against target, plus four tracked KPIs.</p></article>
-      <article class="dash reveal"><img src="https://public-files.gumroad.com/3178yvi294wnw6mcm1dt1yq6meau" width="960" height="540" alt="Sales pipeline dashboard slide" loading="lazy"><h3>Sales pipeline</h3><p>Open, weighted value and deals to watch.</p></article>
-      <article class="dash reveal"><img src="https://public-files.gumroad.com/tp2bhua8rfu4gg5rsocgt9vxo5hu" width="960" height="540" alt="Profitability slide with margin KPIs and an area plus line chart" loading="lazy"><h3>Financial</h3><p>Margins, profit trend and cash in four slides.</p></article>
-      <article class="dash reveal"><img src="https://public-files.gumroad.com/omuhuka5v7eq0599q281378b0dpm" width="960" height="540" alt="Campaign dashboard slide with a line chart and doughnut chart" loading="lazy"><h3>Marketing</h3><p>Campaign results against every goal.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- CHAPTERS -->
-<section style="padding-top:0" aria-labelledby="ch-title">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Nine chapters</span>
-      <h2 id="ch-title">Every slide you need for a <em class="accent">real business review.</em></h2>
-    </div>
-    <ol class="chapters reveal">
-      <li><div><b>Introduction</b><span>Cover, statement, agenda, executive overview</span></div><em>Slides 1–5</em></li>
-      <li><div><b>Company context</b><span>Snapshot, growth, business model, revenue streams</span></div><em>6–10</em></li>
-      <li><div><b>Market &amp; analysis</b><span>Market size, segments, share, competitors, benchmarks</span></div><em>11–18</em></li>
-      <li><div><b>Data &amp; performance</b><span>Dashboards, trends, regions, target vs actual, variance</span></div><em>19–28</em></li>
-      <li><div><b>Sales</b><span>Funnel, pipeline, conversion, forecast, retention</span></div><em>29–36</em></li>
-      <li><div><b>Finance</b><span>Revenue mix, margins, cash flow, waterfall, outlook</span></div><em>37–43</em></li>
-      <li><div><b>Strategy</b><span>Priorities, SWOT, roadmap, risk matrix, action plan</span></div><em>44–50</em></li>
-      <li><div><b>Product &amp; marketing</b><span>Modules, pricing, features, campaign dashboard</span></div><em>51–56</em></li>
-      <li><div><b>Results &amp; close</b><span>Case study, before/after, takeaways, call to action</span></div><em>57–60</em></li>
+    <ol class="steps">
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 16l6-12 6 12M8.5 11h7"/></svg></div><h3>Install the fonts</h3><p>Install Manrope and Inter, both free from Google Fonts, before editing.</p></li>
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h3>Pick a layout</h3><p>Duplicate a slide, or start from a Vertex master with Home › New Slide.</p></li>
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><h3>Replace the content</h3><p>Click any text to type. Headlines should state the message, not the topic.</p></li>
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/><path d="M12 21a3 3 0 0 1 0-6h1.5"/></svg></div><h3>Change the colours</h3><p>Design › Variants › Colors. Every shape and chart follows the theme.</p></li>
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div><h3>Edit the charts</h3><p>Right-click a chart › Edit Data. Charts re-colour with the theme.</p></li>
+      <li class="rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4Z"/></svg></div><h3>Swap the icons</h3><p>Icons are SVG. Use Graphics Format › Fill to recolour, or Convert to Shape.</p></li>
     </ol>
   </div>
 </section>
 
-<!-- CUSTOMISE -->
-<section style="background:var(--surface-2)" aria-labelledby="cu-title">
-  <div class="wrap custom">
-    <div class="reveal">
-      <span class="eyebrow">Made to be edited</span>
-      <h2 id="cu-title" style="margin-top:14px">Rebrand it in minutes, <em class="accent">not slide by slide.</em></h2>
-      <ul class="feat">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 8h18"/></svg><div><b>5 slide masters</b><br><span>Ivory, White and Cobalt layouts plus two blanks.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/></svg><div><b>10 theme colours, 2 theme fonts</b><br><span>One change restyles shapes and text.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><div><b>32 vector icons</b><br><span>Recolour them like any shape.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><div><b>Speaker notes on every slide</b><br><span>What each slide is for and how it’s built.</span></div></li>
+<section class="dark" id="all" aria-labelledby="all-title">
+  <div class="wrap">
+    <div class="head split rv">
+      <div><span class="tag">The full deck</span><h2 class="h2" id="all-title" style="margin-top:18px">All 99 slides, at a glance<span class="dot">.</span></h2></div>
+      <p class="lead">Light, off-white and dark layouts working as one system. This is exactly what you download.</p>
+    </div>
+    <a class="wall rv" href="{{all}}" target="_blank" rel="noopener">
+      <img src="{{all}}" width="2692" height="1902" loading="lazy" alt="Thumbnail grid of all 99 slides in the Business Sales Template">
+      <span class="open">Open full size<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="on-light" aria-labelledby="aud-title">
+  <div class="wrap aud">
+    <div class="rv">
+      <span class="tag">Built for professionals</span>
+      <h2 class="h2" id="aud-title" style="margin:18px 0 22px">You already have the message<span class="dot">.</span></h2>
+      <p class="lead" style="margin-bottom:30px">Vertex gives you the visual system to deliver it — whether you're pitching a client, reporting to the board or planning next year.</p>
+      <ul class="chips" aria-label="Who it's for">
+        <li>Business owners</li><li>Entrepreneurs</li><li>Sales teams</li><li>Marketers</li><li>Consultants</li><li>Startups</li><li>Agencies</li><li>Students</li><li>Corporate professionals</li>
       </ul>
-      <div class="type-specimen">
-        <div><span class="g">Georgia</span><small>Headlines</small></div>
-        <div><span class="a">Arial</span><small>Body &amp; data</small></div>
+    </div>
+    <ul class="uses rv" aria-label="Presentations you can build">
+      <li>Sales presentation<span>Funnel · Pipeline</span></li>
+      <li>Business proposal<span>Problem · Solution</span></li>
+      <li>Company profile<span>Overview · Timeline</span></li>
+      <li>Strategy deck<span>SWOT · Roadmap</span></li>
+      <li>Marketing report<span>Campaign · Journey</span></li>
+      <li>Pitch<span>Market · Finance</span></li>
+      <li>Executive presentation<span>Dashboards · KPIs</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="off on-light" id="buy" aria-labelledby="buy-title">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="tag">What you get</span>
+      <h2 class="h2" id="buy-title">Everything in one file<span class="dot">.</span></h2>
+    </div>
+    <div class="offer">
+      <div class="card rv">
+        <dl class="specs">
+          <dt>File</dt><dd>PowerPoint .pptx (1.66 MB)</dd>
+          <dt>Slides</dt><dd>99, including a 10-slide template guide</dd>
+          <dt>Format</dt><dd>16:9 widescreen, 13.33 × 7.5 in</dd>
+          <dt>Charts</dt><dd>37 native charts, each with embedded data</dd>
+          <dt>Tables</dt><dd>Native KPI scorecard, forecast, plan comparison and P&amp;L</dd>
+          <dt>Icons</dt><dd>90 Phosphor vector icons (SVG with PNG fallback)</dd>
+          <dt>Masters</dt><dd>6 slide masters, light and dark</dd>
+          <dt>Fonts</dt><dd>Manrope + Inter, free under the SIL Open Font License</dd>
+          <dt>Notes</dt><dd>Speaker notes on every slide</dd>
+          <dt>Photos</dt><dd>None — no stock photos required</dd>
+          <dt>Validation</dt><dd>Passes strict ISO/IEC 29500 schema validation</dd>
+        </dl>
       </div>
-    </div>
-    <div class="reveal">
-      <ul class="palette" aria-label="Theme colours">
-        <li><i style="background:#2340C8"></i><b>Cobalt</b>2340C8</li>
-        <li><i style="background:#FF6B4A"></i><b>Coral</b>FF6B4A</li>
-        <li><i style="background:#13246B"></i><b>Deep</b>13246B</li>
-        <li><i style="background:#B7C6F5"></i><b>Sky</b>B7C6F5</li>
-        <li><i style="background:#FFD3C4"></i><b>Peach</b>FFD3C4</li>
-        <li><i style="background:#1A1D23"></i><b>Ink</b>1A1D23</li>
-        <li><i style="background:#6B7080"></i><b>Stone</b>6B7080</li>
-        <li><i style="background:#DCDFE6"></i><b>Mist</b>DCDFE6</li>
-        <li><i style="background:#F8F5EF"></i><b>Ivory</b>F8F5EF</li>
-        <li><i style="background:#FFFFFF"></i><b>White</b>FFFFFF</li>
-      </ul>
-      <img src="https://public-files.gumroad.com/ag425qsblmznawox8ksc5ru1pvk4" width="960" height="540" alt="Strategic roadmap slide with three horizon bands and milestone diamonds" loading="lazy" style="margin-top:30px;border-radius:10px;box-shadow:var(--shadow)">
-    </div>
-  </div>
-</section>
-
-<!-- ALL SLIDES -->
-<section id="slides" aria-labelledby="all-title">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">All 60 slides</span>
-      <h2 id="all-title">See exactly <em class="accent">what you get.</em></h2>
-    </div>
-    <button class="gallery-btn reveal" type="button" data-open-gallery aria-label="Open the full grid of all 60 slides">
-      <img id="mosaic" src="https://public-files.gumroad.com/26y64ivafwowq3d45424upxc0gom" width="1566" height="1494" alt="Thumbnail grid of all 60 slides in the template" loading="lazy">
-    </button>
-    <div class="uses">
-      <div class="use reveal"><h3>Board &amp; investor updates</h3><p>A 16-slide path: results, dashboards, outlook, roadmap and risks.</p></div>
-      <div class="use reveal"><h3>Sales reviews</h3><p>Twelve slides from performance to pipeline, forecast and retention.</p></div>
-      <div class="use reveal"><h3>Strategy offsites</h3><p>Fourteen slides from market to priorities, SWOT and action plan.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- INSIDE + FAQ -->
-<section style="padding-top:0" aria-labelledby="in-title">
-  <div class="wrap split">
-    <div class="reveal">
-      <span class="eyebrow">What’s inside</span>
-      <h2 id="in-title" style="margin:14px 0 26px">The details</h2>
-      <ul class="inside">
-        <li><b>Format</b><span>PowerPoint .pptx, 16:9</span></li>
-        <li><b>Slides</b><span>60, across 9 chapters</span></li>
-        <li><b>Charts</b><span>42 native, with embedded data</span></li>
-        <li><b>Dashboards</b><span>5</span></li>
-        <li><b>Slide masters</b><span>5</span></li>
-        <li><b>Theme</b><span>10 colours · Georgia &amp; Arial</span></li>
-        <li><b>Icons</b><span>32 vector icons</span></li>
-        <li><b>Extras</b><span>Speaker notes · PDF user guide</span></li>
-      </ul>
-    </div>
-    <div id="faq" class="reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2 style="margin:14px 0 26px">Good questions</h2>
-      <details><summary>Are the charts images?</summary><p>No. All 42 are native PowerPoint charts. Right-click any chart and choose Edit Data to type or paste your own numbers.</p></details>
-      <details><summary>Do I need to install fonts?</summary><p>No. The template uses Georgia and Arial, which ship with Windows, macOS and Office, so it looks the same on every machine.</p></details>
-      <details><summary>Can I use my brand colours?</summary><p>Yes. Change the theme colours in Design › Variants › Colors and shapes and text update. Charts can be recoloured with Chart Design › Change Colors.</p></details>
-      <details><summary>Are there photos to replace?</summary><p>None. The design uses typography, charts, shapes and vector icons only, so there’s nothing to license or swap out.</p></details>
-      <details><summary>What’s the sample content?</summary><p>Realistic figures for a fictional company, Halden Group, so you can see how each slide reads. Replace them with your own.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section style="padding-top:0" aria-labelledby="final-title">
-  <div class="wrap">
-    <div class="final reveal">
-      <div class="orbit" aria-hidden="true"><i></i></div>
-      <span class="eyebrow" style="color:#B7C6F5">Ready when you are</span>
-      <h2 id="final-title" style="margin-top:14px">Your next deck, <em class="accent" style="color:#FF8A6E">already designed.</em></h2>
-      <p>60 slides, 42 editable charts and five dashboards, ready for your numbers today.</p>
-      <button class="btn btn-buy" type="button" data-gumroad-action="buy" id="finalBuy">Get the template <span class="sep" aria-hidden="true"></span> <span data-gumroad-field="price">See price</span></button>
-      <p class="product-line" style="margin:14px auto 0;font-size:14px"><span data-gumroad-field="name">Business Presentation Pro</span> by Vanta</p>
-      <div class="meta">
-        <span class="rating"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span data-gumroad-field="rating">Be the first to review</span></span>
-        <span data-gumroad-field="review-count"></span>
-        <span>Instant download</span>
+      <div class="buy-card rv">
+        <div class="nm"><span data-gumroad-field="name">Business Sales Template</span> · Vertex</div>
+        <div class="price"><span data-gumroad-field="price">$14</span><small>One-time purchase · instant download</small></div>
+        <ul class="incl">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>99 fully editable slides</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>37 native charts &amp; data visualisations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>KPI, sales, finance &amp; strategy layouts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>90 editable vector icons</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Built-in template guide</li>
+        </ul>
+        <a class="btn btn-lime" data-gumroad-action="buy">Buy now <span class="div"></span> <span data-gumroad-field="price">$14</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">Secure checkout by Gumroad</p>
       </div>
     </div>
   </div>
 </section>
+
+<section class="on-light" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="faq-grid">
+    <div class="head rv"><span class="tag">FAQ</span><h2 class="h2" id="faq-title">Good questions<span class="dot">.</span></h2><p class="lead">Everything you need to know before you buy.</p></div>
+    <div class="faq rv">
+      <details><summary>What software do I need?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Microsoft PowerPoint. The template is a standard 16:9 .pptx file. Install the two free fonts it uses, Manrope and Inter from Google Fonts, before you start editing.</p></details>
+      <details><summary>Are the charts really editable?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Yes. All 37 are native PowerPoint charts with an embedded worksheet. Right-click a chart › Edit Data, change the numbers, and the chart updates.</p></details>
+      <details><summary>Can I change the colours to match my brand?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Yes. Every shape, text run and chart series uses a theme colour, so Design › Variants › Colors recolours the entire deck at once.</p></details>
+      <details><summary>Does it include photos?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>No. The design is built around typography, data, icons and geometric shapes, so there are no stock photos to replace or license.</p></details>
+      <details><summary>What about the numbers and names on the slides?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>They're sample content for a fictional company, there to show how each layout reads with real-looking data. Replace them with your own.</p></details>
+      <details><summary>Can I edit the icons?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Yes. The 90 icons are embedded as SVG with a PNG fallback. Recolour them with Graphics Format › Fill, or use Convert to Shape.</p></details>
+      <details><summary>How do I get the file?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Checkout is handled by Gumroad. Once your purchase is complete, the .pptx is available to download straight away.</p></details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="final-title">
+  <span class="ring" style="width:520px;height:520px;left:-200px;top:-220px" aria-hidden="true"></span>
+  <span class="ring" style="width:380px;height:380px;right:-120px;bottom:-200px" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative">
+    <span class="tag rv">Get Vertex today</span>
+    <h2 id="final-title" class="rv">Your ideas deserve better slides.</h2>
+    <p class="rv">Stop starting every presentation from a blank slide. Choose a layout, drop in your content, and present with confidence.</p>
+    <div class="rv"><a class="btn btn-navy" data-gumroad-action="buy">Get the template <span class="div"></span> <span data-gumroad-field="price">$14</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="tagline rv">Build faster. Present smarter. Look professional.</div>
+  </div>
+</section>
+
 </main>
 
-<footer><div class="wrap"><span>© Vanta · <span data-gumroad-field="name">Business Presentation Pro</span></span><span>Sample data is fictional.</span></div></footer>
-
-<div class="buybar" id="buybar" aria-hidden="true">
-  <div class="t"><b data-gumroad-field="name">Business Presentation Pro</b><span>60 slides · 42 charts</span></div>
-  <button class="btn btn-buy" type="button" data-gumroad-action="buy" tabindex="-1"><span data-gumroad-field="price">Buy</span></button>
-</div>
-
-<dialog id="gallery" aria-labelledby="gal-title">
-  <div class="modal">
-    <header><h3 id="gal-title">All 60 slides</h3><button class="close" type="button" id="galClose" aria-label="Close">×</button></header>
-    <div class="body" id="galBody"></div>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>VANTA</a>
+    <span><span data-gumroad-field="name">Business Sales Template</span> · Vertex design system</span>
+    <span>Fonts: Manrope &amp; Inter (SIL OFL) · Icons: Phosphor (MIT)</span>
   </div>
-</dialog>
+</footer>
+
+<div class="mbar" id="mbar" aria-hidden="true">
+  <div><b>Business Sales Template</b><small>99 slides · 37 charts</small></div>
+  <a class="btn btn-lime" data-gumroad-action="buy" tabindex="-1">Buy · <span data-gumroad-field="price">$14</span></a>
+</div>
 
 <script>
 (function(){
-  var root=document.documentElement;
-  root.classList.add('js');
-  // safety net: never leave content hidden
-  setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})},4000);
-  // theme: auto -> dark -> light
-  function store(k,v){try{v===undefined?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
-  function read(k){try{return localStorage.getItem(k)}catch(e){return null}}
-  var saved=read('vanta-theme'); if(saved==='dark'||saved==='light') root.setAttribute('data-theme',saved);
-  var tb=document.getElementById('themeBtn');
-  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches}
-  function label(){tb.setAttribute('aria-label',isDark()?'Switch to light theme':'Switch to dark theme')}
-  label();
-  tb.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);store('vanta-theme',n);label()});
-
-  // nav border
-  var nav=document.getElementById('nav');
-  // sticky mobile buy bar after the hero buy button leaves view
-  var bar=document.getElementById('buybar'), hero=document.getElementById('heroBuy'), fin=document.getElementById('finalBuy');
-  var heroOut=false, finIn=false;
-  function upd(){var s=heroOut&&!finIn;bar.classList.toggle('show',s);bar.setAttribute('aria-hidden',s?'false':'true');bar.querySelector('button').tabIndex=s?0:-1}
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd()}).observe(hero);
-    new IntersectionObserver(function(e){finIn=e[0].isIntersecting;upd()}).observe(fin);
-    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}) }
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>8)},{passive:true});
-
-  // chart tabs (roving tabindex + arrow keys)
-  var tabs=[].slice.call(document.querySelectorAll('.tab'));
-  function select(i,focus){tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.dataset.img).classList.toggle('on',on)});document.getElementById('viewer').setAttribute('aria-labelledby',tabs[i].id);if(focus)tabs[i].focus()}
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){select(i)});
-    t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowDown'||k==='ArrowRight')n=(i+1)%tabs.length;if(k==='ArrowUp'||k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;if(k==='Home')n=0;if(k==='End')n=tabs.length-1;if(n!==null){e.preventDefault();select(n,true)}});
-  });
-  select(0);
-
-  // hero parallax tilt (pointer devices, motion allowed)
-  var stack=document.getElementById('stack');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(stack&&!reduce&&window.matchMedia('(pointer:fine)').matches){
-    var cards=stack.querySelectorAll('.card'), base=['rotate(-4deg) translateZ(-60px)','rotate(3deg)','rotate(-1deg) translateZ(40px)'];
-    stack.addEventListener('pointermove',function(e){var r=stack.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-      cards.forEach(function(c,k){var d=(k+1)*6;c.style.transform=base[k]+' translate('+(x*d)+'px,'+(y*d)+'px) rotateY('+(x*4)+'deg) rotateX('+(-y*4)+'deg)'})});
-    stack.addEventListener('pointerleave',function(){cards.forEach(function(c,k){c.style.transform=base[k]})});
+  var d=document,root=d.documentElement;root.className+=' js';
+  var nav=d.getElementById('nav'),bar=d.getElementById('mbar'),hero=d.querySelector('.hero');
+  function onScroll(){
+    var y=window.scrollY||0;
+    if(nav)nav.classList.toggle('scrolled',y>8);
+    if(bar&&hero){var show=y>hero.offsetHeight*0.8;bar.classList.toggle('show',show);bar.setAttribute('aria-hidden',show?'false':'true');var b=bar.querySelector('a');if(b)b.tabIndex=show?0:-1;}
   }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-  // gallery modal
-  var dlg=document.getElementById('gallery'), opener=null;
-  var mos=document.getElementById('mosaic'), home=mos.parentNode, body=document.getElementById('galBody');
-  document.querySelectorAll('[data-open-gallery]').forEach(function(b){b.addEventListener('click',function(){opener=b;mos.loading='eager';body.appendChild(mos);if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}})});
-  document.getElementById('galClose').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
-  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
-  dlg.addEventListener('close',function(){home.appendChild(mos);if(opener)opener.focus()});
+  var tabs=[].slice.call(d.querySelectorAll('[role="tab"]'));
+  function select(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;var p=d.getElementById(x.getAttribute('aria-controls'));if(p){p.classList.toggle('on',on);if(on)p.classList.add('in');}});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];if(n){e.preventDefault();select(n,true);}});
+  });
+  [].slice.call(d.querySelectorAll('.thumb')).forEach(function(b){
+    b.addEventListener('click',function(){
+      var panel=b.closest('.panel'),img=panel.querySelector('.main img');
+      img.src=b.getAttribute('data-src');img.alt=b.getAttribute('data-alt')||'';
+      [].slice.call(panel.querySelectorAll('.thumb')).forEach(function(x){x.classList.toggle('cur',x===b)});
+    });
+  });
+
+  var els=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')});}
 })();
 </script>
-</body>
-</html>
