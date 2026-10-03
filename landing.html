@@ -107,19 +107,13 @@ section{padding:clamp(72px,10vw,136px) 0;position:relative}
 .tab{appearance:none;border:0;cursor:pointer;font:600 15px/1 var(--display);padding:13px 20px;border-radius:999px;background:var(--white);color:var(--charcoal);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s,color .2s,box-shadow .2s}
 .tab:hover{box-shadow:inset 0 0 0 1px var(--slate)}
 .tab[aria-selected="true"]{background:var(--navy);color:var(--white);box-shadow:none}
-.panel{display:grid;grid-template-columns:1.62fr 1fr;gap:20px;align-items:start}
-.panel[hidden]{display:none}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .js .panel:not(.on){display:none}
-.panel .main{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--white);border:1px solid var(--line)}
-.panel .side{display:grid;gap:14px}
-.thumb{appearance:none;padding:0;border:0;cursor:pointer;display:grid;grid-template-columns:44% 1fr;gap:14px;align-items:center;text-align:left;background:var(--white);border-radius:12px;padding:8px;box-shadow:inset 0 0 0 1px var(--line);font:inherit;color:inherit;transition:box-shadow .2s,transform .2s}
-.thumb img{border-radius:7px}
-.thumb b{display:block;font:700 15px/1.25 var(--display);letter-spacing:-.01em}
-.thumb span{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:4px}
-.thumb:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px var(--slate)}
-.thumb.cur{box-shadow:inset 0 0 0 2px var(--navy)}
-.panel .note{font-size:14px;color:var(--muted);padding:6px 4px 0}
-@media (max-width:900px){.panel{grid-template-columns:1fr}.panel .side{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+.panel figure{margin:0}
+.panel img{border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--white)}
+.panel figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:16px;font-size:14px;color:var(--muted)}
+.panel figcaption b{font:700 16px/1.3 var(--display);color:var(--ink);letter-spacing:-.01em}
+@media (max-width:760px){.panel{grid-template-columns:1fr}}
 .no-js-show{display:none}
 
 /* index */
@@ -149,11 +143,6 @@ ul.index{padding:0;margin:0}
 .ico svg{width:22px;height:22px}
 @media (max-width:900px){.feature-row{grid-template-columns:1fr}}
 
-/* dashboards */
-.dash{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}
-.dash figure{margin:0;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--white)}
-.dash .col{display:grid;gap:20px}
-@media (max-width:860px){.dash{grid-template-columns:1fr}}
 
 /* design system */
 .ds{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -173,7 +162,7 @@ ul.index{padding:0;margin:0}
 .t-kpi{font:800 34px/1 var(--display);letter-spacing:-.03em}
 .t-body{font:400 16px/1.4 var(--body);color:var(--charcoal)}
 .t-label{font:500 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--charcoal)}
-.ds-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.ds-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .ds-wide figure{margin:0}
 .ds-wide img{border-radius:12px;border:1px solid var(--line);box-shadow:0 30px 60px -36px rgba(10,22,40,.4)}
 .ds-wide figcaption{font-size:14px;color:var(--muted);margin-top:12px}
@@ -304,9 +293,9 @@ footer .brand{color:var(--white)}
         </ul>
       </div>
       <div class="stage rv" aria-label="Three slides from the template">
-        <div class="slide s-back"><img src="{{s13}}" width="1600" height="900" alt="Dark cover slide reading Grow. Faster. Smarter. Together."></div>
-        <div class="slide s-mid"><img src="{{s64}}" width="1600" height="900" alt="Executive dashboard slide with six KPIs, a quarterly revenue chart, a revenue mix doughnut and initiative status pills"></div>
-        <div class="slide s-front"><img src="{{s01}}" width="1600" height="900" alt="Vertex cover slide with geometric navy and lime artwork and the figures 85+ layouts, 35+ native charts, 90 vector icons, 100% editable"></div>
+        <div class="slide s-back"><img src="https://public-files.gumroad.com/pb7hh3j51o0ibb0d2nybnv6ddljj" width="1600" height="900" alt="Dark cover slide reading Grow. Faster. Smarter. Together."></div>
+        <div class="slide s-mid"><img src="https://public-files.gumroad.com/qhdqwribr7e8ncqd4ruyo2ec233p" width="1600" height="900" alt="Executive dashboard slide with six KPIs, a quarterly revenue chart, a revenue mix doughnut and initiative status pills"></div>
+        <div class="slide s-front"><img src="https://public-files.gumroad.com/mu9uo0265gcz01uqd60uim1q58jd" width="1600" height="900" alt="Vertex cover slide with geometric navy and lime artwork and the figures 85+ layouts, 35+ native charts, 90 vector icons, 100% editable"></div>
       </div>
     </div>
     <div class="stats rv" role="list">
@@ -322,14 +311,13 @@ footer .brand{color:var(--white)}
   <div class="wrap">
     <div class="head split rv">
       <div><span class="tag">Covers &amp; navigation</span><h2 class="h2" id="covers-title" style="margin-top:18px">Open strong<span class="dot">.</span></h2></div>
-      <p class="lead">Five cover designs in light and dark, followed by agenda, contents, section-divider and chapter-intro slides — so the deck feels finished before you reach the first chart.</p>
+      <p class="lead">Five cover designs in light and dark — four shown here — followed by agenda, contents, section-divider and chapter-intro slides — so the deck feels finished before you reach the first chart.</p>
     </div>
     <div class="rail rv" tabindex="0" aria-label="Cover slides, scroll horizontally">
-      <figure><img src="{{s11}}" width="1280" height="720" loading="lazy" alt="Light cover slide: Build what moves the market, with geometric artwork"><figcaption><b>Annual business review</b><span>Light</span></figcaption></figure>
-      <figure><img src="{{s13}}" width="1280" height="720" loading="lazy" alt="Dark cover slide: Grow. Faster. Smarter. Together."><figcaption><b>Go-to-market plan</b><span>Dark</span></figcaption></figure>
-      <figure><img src="{{s14}}" width="1280" height="720" loading="lazy" alt="Split cover slide: Series B Funding Proposal with three headline figures on navy"><figcaption><b>Investor presentation</b><span>Split</span></figcaption></figure>
-      <figure><img src="{{s15}}" width="1280" height="720" loading="lazy" alt="Dark cover slide: Executive Performance Review with a lime arc"><figcaption><b>Board of directors</b><span>Dark</span></figcaption></figure>
-      <figure><img src="{{s12}}" width="1280" height="720" loading="lazy" alt="Minimal light cover slide: Quarterly Business Review"><figcaption><b>Quarterly business review</b><span>Minimal</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/bqg91q0rtkms99431hv1ioej8au3" width="1280" height="720" loading="lazy" alt="Light cover slide: Build what moves the market, with geometric artwork"><figcaption><b>Annual business review</b><span>Light</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/z35wa49ohj3rp1brq0fohoit8v0r" width="1280" height="720" loading="lazy" alt="Split cover slide: Series B Funding Proposal with three headline figures on navy"><figcaption><b>Investor presentation</b><span>Split</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/4436zmg5tpe664cqunyqxdxggv68" width="1280" height="720" loading="lazy" alt="Dark cover slide: Executive Performance Review with a lime arc"><figcaption><b>Board of directors</b><span>Dark</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/ievbks1qdsu0zeeor4dls9f3kzmx" width="1280" height="720" loading="lazy" alt="Minimal light cover slide: Quarterly Business Review"><figcaption><b>Quarterly business review</b><span>Minimal</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -352,63 +340,33 @@ footer .brand{color:var(--white)}
     </div>
 
     <div class="panel on rv" role="tabpanel" id="p-sales" aria-labelledby="t-sales">
-      <div class="main"><img src="{{s49}}" width="1280" height="720" loading="lazy" alt="Sales funnel slide from leads to closed-won with stage conversion rates"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s49}}" data-alt="Sales funnel slide from leads to closed-won with stage conversion rates"><img src="{{s49}}" width="1280" height="720" loading="lazy" alt=""><div><b>Sales funnel</b><span>Volume and conversion by stage</span></div></button>
-        <button class="thumb" data-src="{{s50}}" data-alt="Pipeline slide with deals grouped by stage and quarter coverage"><img src="{{s50}}" width="1280" height="720" loading="lazy" alt=""><div><b>Pipeline by stage</b><span>Open deals and coverage</span></div></button>
-        <button class="thumb" data-src="{{s52}}" data-alt="Bookings versus target slide with monthly columns and a target line"><img src="{{s52}}" width="1280" height="720" loading="lazy" alt=""><div><b>Bookings vs target</b><span>Monthly trend with KPI panel</span></div></button>
-        <button class="thumb" data-src="{{s53}}" data-alt="Dark slide comparing acquisition cost by channel"><img src="{{s53}}" width="1280" height="720" loading="lazy" alt=""><div><b>Channel efficiency</b><span>Acquisition cost by channel</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/g3zv27ordss2sa2uvnkczsrztp2z" width="1280" height="720" loading="lazy" alt="Sales funnel slide from leads to closed-won with stage conversion rates"><figcaption><b>Sales funnel</b><span>Volume and conversion by stage</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/58rcb4y9obk8xbsn4kz2taldov3i" width="1280" height="720" loading="lazy" alt="Bookings versus target slide with monthly columns and a target line"><figcaption><b>Bookings vs target</b><span>Monthly trend with KPI panel</span></figcaption></figure>
     </div>
 
     <div class="panel rv" role="tabpanel" id="p-kpi" aria-labelledby="t-kpi">
-      <div class="main"><img src="{{s64}}" width="1280" height="720" loading="lazy" alt="Executive dashboard slide with six KPIs, quarterly revenue, revenue mix and initiatives"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s64}}" data-alt="Executive dashboard slide with six KPIs, quarterly revenue, revenue mix and initiatives"><img src="{{s64}}" width="1280" height="720" loading="lazy" alt=""><div><b>Executive dashboard</b><span>KPIs, trend, mix and status</span></div></button>
-        <button class="thumb" data-src="{{s63}}" data-alt="KPI dashboard slide with headline tiles, an actual versus plan line chart and annual goals"><img src="{{s63}}" width="1280" height="720" loading="lazy" alt=""><div><b>KPI dashboard</b><span>Actual vs plan with goal bars</span></div></button>
-        <button class="thumb" data-src="{{s66}}" data-alt="Monthly recurring revenue area chart with annotated events"><img src="{{s66}}" width="1280" height="720" loading="lazy" alt=""><div><b>Revenue trend</b><span>Annotated area chart</span></div></button>
-        <button class="thumb" data-src="{{s68}}" data-alt="KPI scorecard table with owners, targets, variance and status"><img src="{{s68}}" width="1280" height="720" loading="lazy" alt=""><div><b>KPI scorecard</b><span>Native table with status</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/xvwri80yurnif0bgyq1gjl42pmcr" width="1280" height="720" loading="lazy" alt="KPI dashboard slide with headline tiles, an actual versus plan line chart and annual goals"><figcaption><b>KPI dashboard</b><span>Actual vs plan with goal bars</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/1lnmtbahhphvt53drdsi1tk1et9q" width="1280" height="720" loading="lazy" alt="KPI scorecard table with owners, targets, variance and status"><figcaption><b>KPI scorecard</b><span>Native table with status</span></figcaption></figure>
     </div>
 
     <div class="panel rv" role="tabpanel" id="p-fin" aria-labelledby="t-fin">
-      <div class="main"><img src="{{s71}}" width="1280" height="720" loading="lazy" alt="Revenue to EBITDA bridge waterfall slide"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s71}}" data-alt="Revenue to EBITDA bridge waterfall slide"><img src="{{s71}}" width="1280" height="720" loading="lazy" alt=""><div><b>Profit bridge</b><span>Waterfall from revenue to EBITDA</span></div></button>
-        <button class="thumb" data-src="{{s69}}" data-alt="Revenue growth slide with an area chart and headline metrics"><img src="{{s69}}" width="1280" height="720" loading="lazy" alt=""><div><b>Revenue growth</b><span>Multi-year area chart</span></div></button>
-        <button class="thumb" data-src="{{s74}}" data-alt="Three-tier pricing slide with a highlighted middle plan"><img src="{{s74}}" width="1280" height="720" loading="lazy" alt=""><div><b>Pricing tiers</b><span>Three plans, one highlighted</span></div></button>
-        <button class="thumb" data-src="{{s75}}" data-alt="Unit economics slide showing lifetime value, acquisition cost and ratio"><img src="{{s75}}" width="1280" height="720" loading="lazy" alt=""><div><b>Unit economics</b><span>LTV, CAC and payback</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/i2jmq6rrduh5ynz7wy3vf2h38xxf" width="1280" height="720" loading="lazy" alt="Revenue to EBITDA bridge waterfall slide"><figcaption><b>Profit bridge</b><span>Waterfall from revenue to EBITDA</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/awu1jesqiqogzfoyekadum5uaxmr" width="1280" height="720" loading="lazy" alt="Three-tier pricing slide with a highlighted middle plan"><figcaption><b>Pricing tiers</b><span>Three plans, one highlighted</span></figcaption></figure>
     </div>
 
     <div class="panel rv" role="tabpanel" id="p-str" aria-labelledby="t-str">
-      <div class="main"><img src="{{s79}}" width="1280" height="720" loading="lazy" alt="SWOT analysis slide with four quadrants"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s79}}" data-alt="SWOT analysis slide with four quadrants"><img src="{{s79}}" width="1280" height="720" loading="lazy" alt=""><div><b>SWOT</b><span>Four-quadrant analysis</span></div></button>
-        <button class="thumb" data-src="{{s78}}" data-alt="Strategy house slide with vision, pillars and foundation"><img src="{{s78}}" width="1280" height="720" loading="lazy" alt=""><div><b>Strategy on a page</b><span>Vision, pillars, foundation</span></div></button>
-        <button class="thumb" data-src="{{s80}}" data-alt="Three-step plan slide with chevrons and milestone metrics"><img src="{{s80}}" width="1280" height="720" loading="lazy" alt=""><div><b>Three-step plan</b><span>Chevrons with targets</span></div></button>
-        <button class="thumb" data-src="{{s82}}" data-alt="Roadmap Gantt slide with quarterly bars and milestones"><img src="{{s82}}" width="1280" height="720" loading="lazy" alt=""><div><b>Roadmap</b><span>Gantt with milestones</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/vqhksnathw2ibdkza4med2mrz123" width="1280" height="720" loading="lazy" alt="SWOT analysis slide with four quadrants"><figcaption><b>SWOT</b><span>Four-quadrant analysis</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/ej1n2ekuy7bsa2jlrk5togr0uwzs" width="1280" height="720" loading="lazy" alt="Roadmap Gantt slide with quarterly bars and milestones"><figcaption><b>Roadmap</b><span>Gantt with milestones</span></figcaption></figure>
     </div>
 
     <div class="panel rv" role="tabpanel" id="p-mkt" aria-labelledby="t-mkt">
-      <div class="main"><img src="{{s40}}" width="1280" height="720" loading="lazy" alt="TAM, SAM and SOM market sizing slide with nested circles"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s40}}" data-alt="TAM, SAM and SOM market sizing slide with nested circles"><img src="{{s40}}" width="1280" height="720" loading="lazy" alt=""><div><b>TAM · SAM · SOM</b><span>Market sizing</span></div></button>
-        <button class="thumb" data-src="{{s39}}" data-alt="Market growth slide with KPI tiles and an actual versus forecast line chart"><img src="{{s39}}" width="1280" height="720" loading="lazy" alt=""><div><b>Market growth</b><span>Actual vs forecast</span></div></button>
-        <button class="thumb" data-src="{{s47}}" data-alt="Head-to-head competitor comparison slide using Harvey balls"><img src="{{s47}}" width="1280" height="720" loading="lazy" alt=""><div><b>Head-to-head</b><span>Harvey-ball comparison</span></div></button>
-        <button class="thumb" data-src="{{s22}}" data-alt="Company timeline slide with milestones"><img src="{{s22}}" width="1280" height="720" loading="lazy" alt=""><div><b>Company timeline</b><span>Milestones by year</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/yzotvzhr6p08whq3gqa6ummeq399" width="1280" height="720" loading="lazy" alt="TAM, SAM and SOM market sizing slide with nested circles"><figcaption><b>TAM · SAM · SOM</b><span>Market sizing</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/2853gpu157vqbnjhpzm9udmsyeik" width="1280" height="720" loading="lazy" alt="Head-to-head competitor comparison slide using Harvey balls"><figcaption><b>Head-to-head</b><span>Harvey-ball comparison</span></figcaption></figure>
     </div>
 
     <div class="panel rv" role="tabpanel" id="p-res" aria-labelledby="t-res">
-      <div class="main"><img src="{{s87}}" width="1280" height="720" loading="lazy" alt="Before and after slide comparing four metrics on light and dark halves"></div>
-      <div class="side">
-        <button class="thumb cur" data-src="{{s87}}" data-alt="Before and after slide comparing four metrics on light and dark halves"><img src="{{s87}}" width="1280" height="720" loading="lazy" alt=""><div><b>Before / after</b><span>Impact in four numbers</span></div></button>
-        <button class="thumb" data-src="{{s86}}" data-alt="Case study slide with challenge, approach and results"><img src="{{s86}}" width="1280" height="720" loading="lazy" alt=""><div><b>Case study</b><span>Challenge, approach, results</span></div></button>
-        <button class="thumb" data-src="{{s21}}" data-alt="Business at a glance slide with a large lime KPI card and four smaller metrics"><img src="{{s21}}" width="1280" height="720" loading="lazy" alt=""><div><b>At a glance</b><span>Company KPIs</span></div></button>
-        <button class="thumb" data-src="{{s99}}" data-alt="Dark closing slide reading Thank you with contact details"><img src="{{s99}}" width="1280" height="720" loading="lazy" alt=""><div><b>Closing</b><span>Thank-you and contact</span></div></button>
-      </div>
+      <figure><img src="https://public-files.gumroad.com/7dk8wtapfbcv0gmvp8eh7mugj6zf" width="1280" height="720" loading="lazy" alt="Before and after slide comparing four metrics on light and dark halves"><figcaption><b>Before / after</b><span>Impact in four numbers</span></figcaption></figure>
+      <figure><img src="https://public-files.gumroad.com/d9ktgsdxmblqq42ele2dn61k5shi" width="1280" height="720" loading="lazy" alt="Case study slide with challenge, approach and results"><figcaption><b>Case study</b><span>Challenge, approach, results</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -453,10 +411,8 @@ footer .brand{color:var(--white)}
       </div>
     </div>
     <div class="chart-grid rv">
-      <figure><img src="{{s93}}" width="1280" height="720" loading="lazy" alt="Chart library slide: ranked horizontal bar and clustered column charts"></figure>
-      <figure><img src="{{s94}}" width="1280" height="720" loading="lazy" alt="Chart library slide: multi-series line and stacked area charts"></figure>
-      <figure><img src="{{s95}}" width="1280" height="720" loading="lazy" alt="Chart library slide: pie, doughnut, radar and progress rings"></figure>
-      <figure><img src="{{s96}}" width="1280" height="720" loading="lazy" alt="Chart library slide: column and line combo, 100% stacked column and bubble charts"></figure>
+      <figure><img src="https://public-files.gumroad.com/tbtu7bub0rpk68zwrlvhnbd5po70" width="1280" height="720" loading="lazy" alt="Chart library slide: ranked horizontal bar and clustered column charts"></figure>
+      <figure><img src="https://public-files.gumroad.com/mg3yeypd9xunb6gnltx4pmp4xnb6" width="1280" height="720" loading="lazy" alt="Chart library slide: column and line combo, 100% stacked column and bubble charts"></figure>
     </div>
     <div class="feature-row">
       <article class="rv">
@@ -474,22 +430,6 @@ footer .brand{color:var(--white)}
         <h3>Diagrams built from shapes</h3>
         <p>Funnels, Gantt, treemap, Harvey balls, bullet charts, cycle, hub-and-spoke, tree, Ansoff, SWOT, positioning matrix and a strategy house.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="on-light" aria-labelledby="dash-title">
-  <div class="wrap">
-    <div class="head split rv">
-      <div><span class="tag">Performance &amp; KPIs</span><h2 class="h2" id="dash-title" style="margin-top:18px">Dashboards ready for the boardroom<span class="dot">.</span></h2></div>
-      <p class="lead">Headline numbers, trends, mix and status on a single slide — the layouts leadership teams expect, already balanced and aligned.</p>
-    </div>
-    <div class="dash rv">
-      <figure><img src="{{s64}}" width="1280" height="720" loading="lazy" alt="Executive dashboard slide"></figure>
-      <div class="col">
-        <figure><img src="{{s63}}" width="1280" height="720" loading="lazy" alt="KPI dashboard slide"></figure>
-        <figure><img src="{{s68}}" width="1280" height="720" loading="lazy" alt="KPI scorecard table slide"></figure>
-      </div>
     </div>
   </div>
 </section>
@@ -528,9 +468,8 @@ footer .brand{color:var(--white)}
         <div class="type-row"><div class="t-label">Section label</div><span>Label · Inter Medium</span></div>
       </div>
       <div class="card ds-wide rv">
-        <figure><img src="{{s07}}" width="1280" height="720" loading="lazy" alt="Component library slide with KPI cards, pills, buttons, progress bar and icon badges"><figcaption><b>Component library.</b> KPI cards, pills, buttons, timelines, quote and comparison blocks.</figcaption></figure>
-        <figure><img src="{{s09}}" width="1280" height="720" loading="lazy" alt="Icon library slide showing a grid of line icons"><figcaption><b>90 vector icons.</b> Phosphor icons as SVG — recolour with Graphics Format › Fill.</figcaption></figure>
-        <figure><img src="{{s04}}" width="1280" height="720" loading="lazy" alt="Colour palette guide slide"><figcaption><b>Built-in guide.</b> Palette, typography, grid and chart guidance inside the deck.</figcaption></figure>
+        <figure><img src="https://public-files.gumroad.com/21ce7owxth6zfxzceh77m3x7u89n" width="1280" height="720" loading="lazy" alt="Component library slide with KPI cards, pills, buttons, progress bar and icon badges"><figcaption><b>Component library.</b> KPI cards, pills, buttons, timelines, quote and comparison blocks.</figcaption></figure>
+        <figure><img src="https://public-files.gumroad.com/1pni54g68bzc1vxgrz9v9al36ro9" width="1280" height="720" loading="lazy" alt="Icon library slide showing a grid of line icons"><figcaption><b>90 vector icons.</b> Phosphor icons as SVG — recolour with Graphics Format › Fill.</figcaption></figure>
       </div>
       <div class="card rv" style="grid-column:1/-1">
         <ul class="facts">
@@ -567,8 +506,8 @@ footer .brand{color:var(--white)}
       <div><span class="tag">The full deck</span><h2 class="h2" id="all-title" style="margin-top:18px">All 99 slides, at a glance<span class="dot">.</span></h2></div>
       <p class="lead">Light, off-white and dark layouts working as one system. This is exactly what you download.</p>
     </div>
-    <a class="wall rv" href="{{all}}" target="_blank" rel="noopener">
-      <img src="{{all}}" width="2692" height="1902" loading="lazy" alt="Thumbnail grid of all 99 slides in the Business Sales Template">
+    <a class="wall rv" href="https://public-files.gumroad.com/oqojwjpzpsbw4x7wl311cpi0qn0q" target="_blank" rel="noopener">
+      <img src="https://public-files.gumroad.com/oqojwjpzpsbw4x7wl311cpi0qn0q" width="2692" height="1902" loading="lazy" alt="Thumbnail grid of all 99 slides in the Business Sales Template">
       <span class="open">Open full size<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     </a>
   </div>
@@ -698,13 +637,6 @@ footer .brand{color:var(--white)}
   tabs.forEach(function(t,i){
     t.addEventListener('click',function(){select(t)});
     t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];if(n){e.preventDefault();select(n,true);}});
-  });
-  [].slice.call(d.querySelectorAll('.thumb')).forEach(function(b){
-    b.addEventListener('click',function(){
-      var panel=b.closest('.panel'),img=panel.querySelector('.main img');
-      img.src=b.getAttribute('data-src');img.alt=b.getAttribute('data-alt')||'';
-      [].slice.call(panel.querySelectorAll('.thumb')).forEach(function(x){x.classList.toggle('cur',x===b)});
-    });
   });
 
   var els=[].slice.call(d.querySelectorAll('.rv'));
